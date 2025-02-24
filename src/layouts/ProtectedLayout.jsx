@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header.jsx";
 import { Footer } from "../components/Footer.jsx";
+import "../styles/global.css";
 
-export const OpenLayout = () => {
+export const ProtectedLayout = () => {
   return (
     <>
       <Header />
@@ -12,4 +13,4 @@ export const OpenLayout = () => {
   );
 };
 
-export default OpenLayout;
+export default ProtectedLayout;
