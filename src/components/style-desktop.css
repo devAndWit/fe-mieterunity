@@ -51,7 +51,7 @@ header {
     transition: 0.3s all;
 
     &:hover {
-      background-color: lightblue;
+      background-color: var(--bg-60);
     }
   }
 }
@@ -195,9 +195,6 @@ main {
   form {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
-    background-color: rgb(173, 216, 230, 0.5);
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
 
     .figureContent {
       figure {

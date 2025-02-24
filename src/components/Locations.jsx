@@ -1,5 +1,9 @@
 export const Locations = () => {
-  return <div>Standort</div>;
+  return (
+    <main>
+      <h1>Standort</h1>
+    </main>
+  );
 };
 
 export default Locations;

@@ -1,14 +1,18 @@
-import OpenRoutes from "../src/Routes/OpenRoutes.jsx";
-import ProtectedRoutes from "../src/Routes/ProtectedRoutes.jsx";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
+import OpenRoutes from "../src/routes/OpenRoutes.jsx";
+import ProtectedRoutes from "../src/routes/ProtectedRoutes.jsx";
+import NotFoundRoutes from "./routes/NotFoundRoutes.jsx";
 import "./App.css";
 
 function App() {
   return (
     <div>
-      <OpenRoutes />
-      <ProtectedRoutes />
+      <Routes>
+        <Route path="/*" element={<OpenRoutes />} />
+        <Route path="/profile/*" element={<ProtectedRoutes />} />
+        <Route path="*" element={<NotFoundRoutes />} />
+      </Routes>
     </div>
   );
 }

@@ -13,13 +13,20 @@ a:active {
   text-decoration: none;
 }
 
+.ext-link {
+  display: inline-block;
+  padding: 0.5rem 0 0.5rem 1rem;
+  color: blue;
+  text-decoration: underline;
+}
+
 body {
   max-width: 100vw;
   margin: 2rem auto 2rem auto;
 }
 
 button {
-  background-color: red;
+  background-color: var(--bg-50);
   border-radius: 1rem;
 }
 
@@ -43,4 +50,43 @@ input:focus,
 input:active {
   border: none;
   outline: none;
+  background-color: whitesmoke;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  background-color: whitesmoke;
+}
+
+form {
+  p {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+
+    label {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      height: 300px;
+      resize: none;
+      overflow-y: scroll;
+    }
+    button {
+    }
+  }
 }

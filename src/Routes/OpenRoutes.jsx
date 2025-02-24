@@ -1,11 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { OpenLayout } from "../layouts/OpenLayout.jsx";
-import { Home } from "../components/Home.jsx";
-import { Contact } from "../components/Contact.jsx";
-import { About } from "../components/About.jsx";
-import { Mission } from "../components/Mission.jsx";
-import { SignUp } from "../components/SignUp.jsx";
-import { Login } from "../components/Login.jsx";
+import { Home } from "../pages/Home.jsx";
+import { About } from "../pages/About.jsx";
+import { Contact } from "../pages/Contact.jsx";
+import { Mission } from "../pages/Mission.jsx";
+import { SignUp } from "../pages/SignUp.jsx";
+import { Login } from "../pages/Login.jsx";
 
 export const OpenRoutes = () => {
   return (
