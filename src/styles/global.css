@@ -62,31 +62,50 @@ textarea {
 form {
   p {
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem;
     gap: 1rem;
     justify-content: center;
 
     label {
       display: block;
       width: 100%;
-      padding: 1rem;
+      padding: 0.5rem;
     }
 
-    input {
+    input,
+    input:active,
+    input:focus {
       display: block;
       width: 100%;
-      padding: 1rem;
+      padding: 0.5rem;
+      background: lightgray;
     }
 
     textarea {
       display: block;
       width: 100%;
-      padding: 1rem;
+      padding: 0.5rem;
       height: 300px;
       resize: none;
       overflow-y: scroll;
     }
-    button {
-    }
   }
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: var(--bg-50);
+  color: black;
+  cursor: pointer !important;
+  transition: 0.3s all;
+
+  &:hover {
+    background-color: var(--bg-80);
+  }
+}
+
+svg,
+svg * {
+  cursor: pointer;
 }

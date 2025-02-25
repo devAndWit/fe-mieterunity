@@ -11,7 +11,7 @@ export const AddressItem = (val) => {
         </span>
       </div>
       <div className={styles.addressItemControl}>
-        <button value={_id}>
+        <button type="button" value={_id}>
           <IoTrash size={"1.5rem"} color="red" />
         </button>
       </div>

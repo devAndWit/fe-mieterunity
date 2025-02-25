@@ -3,12 +3,10 @@ import styles from "./Account.module.css";
 
 export const Account = () => {
   return (
-    <main>
+    <main className={styles.AccountContainer}>
       <h1>Konto</h1>
       <section>
-        <p>
-          erstellt am: 25.02.2025
-        </p>
+        <p>erstellt am: 25.02.2025</p>
         <form action="" method="POST" className={styles.AccountForm}>
           <p>
             <label htmlFor="firstname">Vorname:</label>
@@ -30,6 +28,11 @@ export const Account = () => {
             <Link to="/profile">Close</Link>
           </p>
         </form>
+      </section>
+
+      <section className={styles.AccountDeleteSection}>
+        <b>Du kannst hier dein Konto löschen.</b>
+        <button type="button">Konto löschen</button>
       </section>
     </main>
   );

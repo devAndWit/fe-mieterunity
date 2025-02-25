@@ -1,3 +1,9 @@
 .AddressList {
   background-color: whitesmoke;
+
+  i {
+    display: block;
+    padding: 1rem;
+  }
+
 }

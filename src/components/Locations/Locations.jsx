@@ -1,62 +1,130 @@
 import { useState } from "react";
+import { Modal } from "./Modal/Modal.jsx";
+import styles from "./Locations.module.css";
 
 import AddressList from "./AddressList.jsx";
 
 export const Locations = () => {
-  const [showNewEntry, setShowNewEntry] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [addressData, setAddressData] = useState({
+    street: "",
+    housenr: "",
+    postalcode: "",
+    city: "",
+    country: "Germany",
+  });
 
-  function handleNewEntryClick() {
-    setShowNewEntry(!showNewEntry);
-  }
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    setAddressData((prevAddressData) => ({
+      ...prevAddressData,
+      [name]: value,
+    }));
+    console.log(addressData);
+  };
+
+  const handleSaveData = (e) => {
+    e.preventDefault();
+    console.log("speichern gedrückt");
+    console.log();
+  };
 
   return (
     <main>
       <h1>Standort</h1>
+
       <div>
         <h2>Adressliste:</h2>
         <AddressList />
       </div>
 
-      <div>
-        <button onClick={handleNewEntryClick}>+ neue Adresse</button>
+      <div className="">
+        <button
+          type="button"
+          onClick={() => setModalOpen(true)}
+          className={styles.Button}
+        >
+          Open Modal
+        </button>
 
-        <form action="" className={showNewEntry ? "" : "hidden"}>
-          <p>
-            <label htmlFor="street">Straße:</label>
-            <input type="text" name="street" id="street" />
-          </p>
+        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+          <h2>Neue Adresse</h2>
 
-          <p>
-            <label htmlFor="number">Hausnummer:</label>
-            <input type="text" name="number" id="number" />
-          </p>
+          <form action="">
+            <p>
+              <label htmlFor="street">Straße:</label>
+              <input
+                type="text"
+                name="street"
+                id="street"
+                value={addressData.street}
+                onChange={handleInput}
+              />
+            </p>
 
-          <p>
-            <label htmlFor="postalcode">Postleitzahl:</label>
-            <input type="text" name="postalcode" id="postalcode" />
-          </p>
+            <p>
+              <label htmlFor="housenr">Hausnummer:</label>
+              <input
+                type="text"
+                name="housenr"
+                id="housenr"
+                value={addressData.housenr}
+                onChange={handleInput}
+              />
+            </p>
 
-          <p>
-            <label htmlFor="city">Ort:</label>
-            <input type="text" name="city" id="city" />
-          </p>
+            <p>
+              <label htmlFor="postalcode">Postleitzahl:</label>
+              <input
+                type="text"
+                name="postalcode"
+                id="postalcode"
+                value={addressData.postalcode}
+                onChange={handleInput}
+              />
+            </p>
 
-          <p>
-            <label htmlFor="country">Land:</label>
-            <input
-              type="text"
-              name="country"
-              id="country"
-              value="Deutschland"
-              disabled
-            />
-          </p>
+            <p>
+              <label htmlFor="city">Ort:</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                value={addressData.city}
+                onChange={handleInput}
+              />
+            </p>
 
-          <p>
-            <button type="submit">Speichern</button>
-            <button type="submit">Close</button>
-          </p>
-        </form>
+            <p>
+              <label htmlFor="country">Land:</label>
+              <input
+                type="text"
+                name="country"
+                id="country"
+                value="Deutschland"
+                disabled
+              />
+            </p>
+
+            <p>
+              <button
+                className={styles.Button}
+                type="submit"
+                onClick={handleSaveData}
+              >
+                Speichern
+              </button>
+              <button
+                type="button"
+                className={styles.Button}
+                onClick={() => setModalOpen(false)}
+              >
+                Close
+              </button>
+            </p>
+          </form>
+        </Modal>
       </div>
     </main>
   );
