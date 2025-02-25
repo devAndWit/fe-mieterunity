@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedLayout } from "../layouts/ProtectedLayout.jsx";
-import { Locations } from "../components/Locations.jsx";
+import { Locations } from "../components/Locations/Locations.jsx";
 import { Settings } from "../components/Settings.jsx";
 import { Account } from "../components/Account.jsx";
 import { Password } from "../components/Password.jsx";

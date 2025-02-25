@@ -1,0 +1,30 @@
+.addressItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.addressItemContent {
+  span {
+    display: block;
+  }
+}
+
+.addressItemControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  button {
+    display: block;
+    background-color: var(--bg-50);
+    border-radius: 0;
+    padding: 0.5rem;
+    transition: 0.3s all;
+    &:hover {
+      background-color: var(--bg-80);
+    }
+  }
+}
