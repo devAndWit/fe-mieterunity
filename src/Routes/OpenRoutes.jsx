@@ -5,7 +5,10 @@ import { About } from "../pages/About.jsx";
 import { Contact } from "../pages/Contact.jsx";
 import { Mission } from "../pages/Mission.jsx";
 import { SignUp } from "../pages/SignUp.jsx";
-import { Login } from "../pages/Login.jsx";
+import { Login } from "../components/Login/Login.jsx";
+import PrivacyPolicy from "../components/Footer/PrivacyPolicy.jsx";
+import LegalNotice from "../components/Footer/LegalNotice.jsx";
+import { NotFound } from "../pages/NotFound.jsx";
 
 export const OpenRoutes = () => {
   return (
@@ -15,8 +18,15 @@ export const OpenRoutes = () => {
         <Route path="mission" element={<Mission />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
+
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+
+        <Route path="privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="legalnotice" element={<LegalNotice />} />
+
+        {"NotFound"}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

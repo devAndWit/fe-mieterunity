@@ -6,6 +6,7 @@ import { Account } from "../components/Account.jsx";
 import { Password } from "../components/Password.jsx";
 import { Logout } from "../components/Logout.jsx";
 import { Profile } from "../components/Profile.jsx";
+import { NotFound } from "../pages/NotFound.jsx";
 
 export const ProtectedRoutes = () => {
   return (
@@ -17,6 +18,9 @@ export const ProtectedRoutes = () => {
         <Route path="settings" element={<Settings />} />
         <Route path="account" element={<Account />} />
         <Route path="password" element={<Password />} />
+
+        {"NotFound"}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

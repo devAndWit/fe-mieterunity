@@ -7,7 +7,7 @@ import "./style-desktop.css";
 
 export const Header = () => {
   return (
-    <header>
+    <header id="idHeader">
       <div className="MenuContainer hidden">
         <div className="cross"></div>
         <menu>
