@@ -8,7 +8,7 @@ import { SignUp } from "../pages/SignUp.jsx";
 import { Login } from "../components/Login/Login.jsx";
 import PrivacyPolicy from "../components/Footer/PrivacyPolicy.jsx";
 import LegalNotice from "../components/Footer/LegalNotice.jsx";
-import { NotFound } from "../pages/NotFound.jsx";
+import { NotFound } from "../components/NotFound/NotFound.jsx";
 
 export const OpenRoutes = () => {
   return (

@@ -1,0 +1,14 @@
+.NotFoundSection {
+  a {
+    display: inline-block;
+    background-color: var(--bg-20);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+    transition: 0.3s all;
+
+    &:hover {
+      box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.8);
+    }
+  }
+}

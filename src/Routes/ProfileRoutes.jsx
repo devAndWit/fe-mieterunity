@@ -6,7 +6,7 @@ import { Account } from "../components/Account.jsx";
 import { Password } from "../components/Password.jsx";
 import { Logout } from "../components/Logout.jsx";
 import { Profile } from "../components/Profile.jsx";
-import { NotFound } from "../pages/NotFound.jsx";
+import { NotFound } from "../components/NotFound/NotFound.jsx";
 
 export const ProtectedRoutes = () => {
   return (
