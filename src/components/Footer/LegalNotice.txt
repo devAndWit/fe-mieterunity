@@ -1,0 +1,28 @@
+Impressum (Vorlage)
+
+Impressum
+
+Angaben gemäß § 5 TMG:
+
+[Name des Unternehmens / Webseitenbetreibers]
+[Adresse]
+[PLZ, Stadt]
+[Telefonnummer]
+[E-Mail-Adresse]
+[Webseite-URL]
+
+Falls eine Firma:
+
+    Vertreten durch: [Name der vertretungsberechtigten Person]
+    Handelsregister: [Registergericht & Registernummer]
+    Umsatzsteuer-Identifikationsnummer: [falls vorhanden, z. B. DE123456789]
+    Berufsrechtliche Regelungen: [falls zutreffend, z. B. für Anwälte, Ärzte]
+
+Falls journalistisch-redaktionelle Inhalte bereitgestellt werden:
+Verantwortlich für den Inhalt nach § 18 MStV:
+[Name]
+[Adresse]
+
+Falls Online-Streitbeilegung erforderlich (z. B. Online-Shop):
+Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+https://ec.europa.eu/consumers/odr

@@ -1,0 +1,61 @@
+Datenschutzerklärung (Vorlage)
+
+Datenschutzerklärung
+
+1. Verantwortlicher
+[Name/Firma]
+[Adresse]
+[PLZ, Stadt]
+[E-Mail]
+[Telefonnummer]
+
+Falls ein Datenschutzbeauftragter benannt wurde:
+Datenschutzbeauftragter:
+[Name des Datenschutzbeauftragten]
+[E-Mail]
+
+2. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck ihrer Verwendung
+
+a) Beim Besuch der Website
+Beim Aufrufen unserer Website [Webseiten-URL] werden durch den Browser automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sog. Logfile gespeichert. Folgende Daten werden dabei ohne Ihr Zutun erfasst:
+
+    IP-Adresse
+    Datum und Uhrzeit der Anfrage
+    Name und URL der abgerufenen Datei
+    Website, von der aus der Zugriff erfolgt (Referrer-URL)
+    Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners
+
+Die genannten Daten werden zu folgenden Zwecken verarbeitet:
+
+    Gewährleistung eines reibungslosen Verbindungsaufbaus
+    Auswertung der Systemsicherheit und -stabilität
+    Zu administrativen Zwecken
+
+Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO.
+
+3. Weitergabe von Daten
+Eine Übermittlung Ihrer persönlichen Daten an Dritte erfolgt nur in folgenden Fällen:
+
+    Wenn Sie ausdrücklich eingewilligt haben (Art. 6 Abs. 1 S. 1 lit. a DSGVO)
+    Wenn dies zur Erfüllung eines Vertrags mit Ihnen erforderlich ist (Art. 6 Abs. 1 lit. b DSGVO)
+    Wenn eine gesetzliche Verpflichtung besteht (Art. 6 Abs. 1 lit. c DSGVO)
+    Wenn die Weitergabe zur Wahrung berechtigter Interessen erforderlich ist (Art. 6 Abs. 1 lit. f DSGVO)
+
+4. Cookies & Tracking-Technologien
+Diese Website verwendet Cookies. Hierbei handelt es sich um kleine Dateien, die Ihr Browser automatisch speichert. Sie dienen der Verbesserung unserer Website. Sie können Cookies in Ihren Browsereinstellungen deaktivieren.
+
+Falls Tracking-Tools (Google Analytics, Matomo etc.) genutzt werden:
+Wir verwenden [Name des Tracking-Tools]. Anbieter ist [Anbieter], [Adresse]. Das Tool ermöglicht eine Analyse des Nutzerverhaltens. Mehr dazu in den Datenschutzhinweisen von [Anbieter].
+
+5. Ihre Rechte als betroffene Person
+Sie haben folgende Rechte:
+
+    Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO)
+    Berichtigung unrichtiger Daten (Art. 16 DSGVO)
+    Löschung Ihrer Daten (Art. 17 DSGVO)
+    Einschränkung der Verarbeitung (Art. 18 DSGVO)
+    Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)
+    Datenübertragbarkeit (Art. 20 DSGVO)
+    Beschwerde bei einer Aufsichtsbehörde
+
+Kontaktieren Sie uns unter [E-Mail] für Anfragen zu Ihren Rechten.
