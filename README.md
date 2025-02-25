@@ -95,12 +95,4 @@ MieterUnity is the smart platform that brings tenants together for seamless comm
 - Ensures privacy and data security for tenants.
 - Scalable for future improvements and additional features.
 
----
 
-## 📢 Get Involved!
-
-We are looking for contributors to improve and expand MieterUnity! If you're a developer, UX designer, or tenant advocate, feel free to join us and help build a better tenant communication platform.
-
-📩 **Contact:** [Your Contact Information]  
-🌍 **Website (if available):** [Your Website]  
-📜 **License:** MIT License (or your preferred license)
