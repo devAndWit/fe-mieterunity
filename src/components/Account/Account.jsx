@@ -6,6 +6,9 @@ export const Account = () => {
     <main>
       <h1>Konto</h1>
       <section>
+        <p>
+          erstellt am: 25.02.2025
+        </p>
         <form action="" method="POST" className={styles.AccountForm}>
           <p>
             <label htmlFor="firstname">Vorname:</label>

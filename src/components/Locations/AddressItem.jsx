@@ -1,5 +1,4 @@
 import { IoTrash } from "react-icons/io5";
-import { FaEdit } from "react-icons/fa";
 import styles from "./AddressItem.module.css";
 
 export const AddressItem = (val) => {
@@ -12,9 +11,6 @@ export const AddressItem = (val) => {
         </span>
       </div>
       <div className={styles.addressItemControl}>
-        <button value={_id}>
-          <FaEdit size={"1.5rem"} />
-        </button>
         <button value={_id}>
           <IoTrash size={"1.5rem"} color="red" />
         </button>
