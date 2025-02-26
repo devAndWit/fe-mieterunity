@@ -24,3 +24,11 @@ export const addressData = [
     updatedAt: Date.now(),
   },
 ];
+
+export const useUserAddress = () => {
+  const values = { count: addressData.length, addresses: addressData };
+
+  return values;
+};
+
+export default { useUserAddress };

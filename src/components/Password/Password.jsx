@@ -1,16 +1,20 @@
 import { useState } from "react";
-import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
+import styles from "./Password.module.css";
+
+export const Password = () => {
   const [formData, setFormData] = useState({
-    email: "",
     password: "",
+    passwordConfirm: "",
   });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.email && formData.password) {
+    if (formData.password && formData.password === formData.passwordConfirm) {
       try {
         const response = await fetch("http://localhost:5000/send-email", {
           method: "POST",
@@ -32,20 +36,23 @@ export const Login = () => {
   const handleInput = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
-
     setFormData((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
+  const handleClose = () => {
+    navigate("/profile");
   };
 
   return (
     <main>
-      <section className={styles.loginSection}>
+      <section className={styles.passwordSection}>
         <div className={styles.headlineContainer}>
-          <span className={styles.headlineSpan}>Login</span>
+          <span className={styles.headlineSpan}>Passwort</span>
         </div>
       </section>
 
-      <section className={styles.loginSection}>
-        <article className={styles.loginArticle}>
+      <section className={styles.passwordSection}>
+        <article className={styles.passwordArticle}>
           <div className={styles.sectionContentText}>
             <form
               className={styles.formData}
@@ -53,33 +60,28 @@ export const Login = () => {
               method="POST"
             >
               <p>
-                <label htmlFor="email">Email:</label>
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInput}
-                  required
-                />
-              </p>
-              <p>
-                <label htmlFor="password">Passwort:</label>
+                <label htmlFor="password">Passwort</label>
                 <input
                   type="password"
                   id="password"
-                  placeholder="Passwort"
                   name="password"
                   value={formData.password}
                   onChange={handleInput}
-                  required
                 />
               </p>
               <p>
-                <button type="submit">
-                  Login
-                </button>
+                <label htmlFor="">Passwort Wiederholung</label>
+                <input
+                  type="password"
+                  id="passwordConfirm"
+                  name="passwordConfirm"
+                  value={formData.passwordConfirm}
+                  onChange={handleInput}
+                />
+              </p>
+              <p>
+                <button type="submit">Speichern</button>
+                <button onClick={handleClose}>Schließen</button>
               </p>
             </form>
           </div>
@@ -89,4 +91,4 @@ export const Login = () => {
   );
 };
 
-export default Login;
+export default Password;
