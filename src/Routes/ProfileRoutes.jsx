@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedLayout } from "../layouts/ProtectedLayout.jsx";
 import { Locations } from "../components/Locations/Locations.jsx";
-import { Settings } from "../components/Settings.jsx";
+import { Settings } from "../components/Settings/Settings.jsx";
 import { Account } from "../components/Account/Account.jsx";
 import { Password } from "../components/Password/Password.jsx";
 import { Logout } from "../components/Logout/Logout.jsx";

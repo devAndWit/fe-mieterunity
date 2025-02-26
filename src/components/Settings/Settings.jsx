@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./Password.module.css";
+import styles from "./Settings.module.css";
 
-export const Password = () => {
+export const Settings = () => {
   const [formData, setFormData] = useState({
-    password: "",
-    passwordConfirm: "",
+    darkMode: false,
   });
 
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ export const Password = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.password && formData.password === formData.passwordConfirm) {
+    if (formData.email && formData.password) {
       try {
         const response = await fetch("http://localhost:5000/send-email", {
           method: "POST",
@@ -45,14 +44,14 @@ export const Password = () => {
 
   return (
     <main>
-      <section className={styles.passwordSection}>
+      <section className={styles.settingsSection}>
         <div className={styles.headlineContainer}>
-          <span className={styles.headlineSpan}>Passwort</span>
+          <span className={styles.headlineSpan}>Einstellungen</span>
         </div>
       </section>
 
-      <section className={styles.passwordSection}>
-        <article className={styles.passwordArticle}>
+      <section className={styles.settingsSection}>
+        <article className={styles.settingsArticle}>
           <div className={styles.sectionContentText}>
             <form
               className={styles.formData}
@@ -60,22 +59,12 @@ export const Password = () => {
               method="POST"
             >
               <p>
-                <label htmlFor="password">Passwort</label>
+                <label htmlFor="darkmode">DarkMode</label>
                 <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInput}
-                />
-              </p>
-              <p>
-                <label htmlFor="">Passwort Wiederholung</label>
-                <input
-                  type="password"
-                  id="passwordConfirm"
-                  name="passwordConfirm"
-                  value={formData.passwordConfirm}
+                  type="checkbox"
+                  name="darkmode"
+                  id="darkmode"
+                  value={formData.darkMode}
                   onChange={handleInput}
                 />
               </p>
@@ -91,4 +80,4 @@ export const Password = () => {
   );
 };
 
-export default Password;
+export default Settings;
