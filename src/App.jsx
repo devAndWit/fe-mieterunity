@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="siteContent">
       <Routes>
         <Route path="/profile/*" element={<ProtectedRoutes />} />
         <Route path="/*" element={<OpenRoutes />} />
