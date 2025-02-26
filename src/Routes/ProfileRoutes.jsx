@@ -4,8 +4,8 @@ import { Locations } from "../components/Locations/Locations.jsx";
 import { Settings } from "../components/Settings.jsx";
 import { Account } from "../components/Account/Account.jsx";
 import { Password } from "../components/Password/Password.jsx";
-import { Logout } from "../components/Logout.jsx";
-import { Profile } from "../components/Profile.jsx";
+import { Logout } from "../components/Logout/Logout.jsx";
+import { Profile } from "../components/Profile/Profile.jsx";
 import { NotFound } from "../components/NotFound/NotFound.jsx";
 
 export const ProtectedRoutes = () => {

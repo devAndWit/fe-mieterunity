@@ -15,6 +15,7 @@ a:active {
 
 body {
   width: 100vw;
+  min-height: 100vh;
   /* background-color: var(--blue-40); */
   background-image: linear-gradient(
     rgba(0, 150, 210, 0.5),
@@ -37,10 +38,12 @@ body {
 
 .siteContent {
   display: grid;
+  min-height: 100vh;
   grid-template-areas:
     "header header header"
     ". main ."
     "footer footer footer";
+  grid-template-columns: auto 10fr auto;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -55,9 +58,31 @@ header {
 
 main {
   grid-area: main;
-  max-width: 1000px;
   margin: 0 auto;
-  margin-bottom: 1rem;
+
+  /* Tablet (768px bis 1023px) */
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 1rem;
+  }
+
+  /* Tablet (768px bis 1023px) */
+  @media screen and (max-width: 1023px) {
+    font-size: 16px;
+    max-width: 700px;
+    width: 100%;
+    background-color: lightblue;
+  }
+
+  /* Mobile (bis 767px) */
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    background-color: lightgreen;
+  }
 }
 
 footer {
