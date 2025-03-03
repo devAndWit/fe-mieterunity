@@ -225,3 +225,22 @@
 .maximized {
   height: auto;
 }
+
+.ProfileAddressList {
+  
+  ul {
+    background-color: gray;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+
+    span {
+      display: block;
+      width: 100%;
+    }
+  }
+}

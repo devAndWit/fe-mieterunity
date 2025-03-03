@@ -4,23 +4,26 @@ import AuthContext from "../contexts/AuthContext.jsx";
 
 const useUser = (userId) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [userLoading, setUserLoading] = useState(true);
+  const [userError, setUserError] = useState(null);
 
   const { backendUrl } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchUser = async () => {
-      setLoading(true);
-      setError(null);
+      console.log("FETCHE USER DATEN");
+      setUserLoading(true);
+      setUserError(null);
       try {
-        const response = await axios.get(`${backendUrl}/users/${userId}`); // Annahme: Ihre API-Route sieht so aus
+        const response = await axios.get(
+          `${backendUrl}/users/getUserWithAddressesAndThreadsAndImages/${userId}`
+        );
         console.log(response.data);
         setUser(response.data);
       } catch (err) {
-        setError(err);
+        setUserError(err);
       } finally {
-        setLoading(false);
+        setUserLoading(false);
       }
     };
 
@@ -29,7 +32,7 @@ const useUser = (userId) => {
     }
   }, [userId, backendUrl]);
 
-  return { user, loading, error };
+  return { user, userLoading, userError };
 };
 
 export default useUser;

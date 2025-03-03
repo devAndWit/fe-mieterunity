@@ -13,8 +13,8 @@ export const Login = () => {
   }
 
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "andwit@test1050.de",
+    password: "!Passwort1000DE!",
   });
 
   const [errMessage, setErrMessage] = useState("");
