@@ -1,22 +1,22 @@
 import { IoMdPerson } from "react-icons/io";
 import { IconContext } from "react-icons";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
     <nav className="">
       <ul className="">
         <li className="">
-          <a href="/#vision">Unsere Vision</a>
+          <Link to="/#vision">Unsere Vision</Link>
         </li>
         <li className="">
-          <a href="/#about">Über uns</a>
+          <Link to="/#about">Über uns</Link>
         </li>
         <li className="">
-          <a href="/contact">Kontakt</a>
+          <Link to="/contact">Kontakt</Link>
         </li>
         <li className="profil">
-          <a href="/profile" className="profil-icon">
-            {/* <a href="/login" className="profil-icon"></a> */}
+          <Link to="/profile">
             <IconContext
               value={{
                 size: "2rem",
@@ -25,7 +25,7 @@ export const Navbar = () => {
             >
               <IoMdPerson />
             </IconContext>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

@@ -1,30 +1,33 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext.jsx";
 import styles from "./Login.module.css";
 
 export const Login = () => {
+  const { user, login, isAuthenticated } = useContext(AuthContext);
+
+  if (user && isAuthenticated) {
+    console.log("User", user);
+    console.log("isAuthenticated :", isAuthenticated);
+  } else {
+    console.log("User und IsAuthenticated unbekannt.");
+  }
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const [errMessage, setErrMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.email && formData.password) {
       try {
-        const response = await fetch("http://localhost:5000/send-email", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-
-        if (response.ok) {
-          setFormData({ email: "", password: "" });
-        } else {
-          console.log("Fehler bei der Anmeldung");
-        }
+        setErrMessage(login(formData));
+        console.log("errMsg: ", errMessage);
       } catch (error) {
-        console.log(error);
+        console.log("Error - Login", error);
       }
     }
   };
@@ -77,9 +80,7 @@ export const Login = () => {
                 />
               </p>
               <p>
-                <button type="submit">
-                  Login
-                </button>
+                <button type="submit">Login</button>
               </p>
             </form>
           </div>

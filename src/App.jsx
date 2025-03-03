@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import OpenRoutes from "../src/routes/OpenRoutes.jsx";
-import ProtectedRoutes from "./routes/ProfileRoutes.jsx";
+import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
 
 import "./App.css";
 

@@ -1,7 +1,35 @@
+import { useEffect } from "react";
 import house_01 from "../../assets/house_01_pixabay.jpg";
 import styles from "./Home.module.css";
+import useReactions from "../../hooks/useReactions";
+import useFetch from "../../hooks/useFetch";
 
 export const Home = () => {
+  const {
+    reactions,
+    getReactionTextById,
+    getReactionSymbolById,
+    reactionsError,
+    reactionsLoading,
+  } = useReactions();
+
+  const id = "67c4a6954dfbe261457be419";
+  const { fetchData, fetchLoading, fetchError } = useFetch(
+    "localhost:8000/users/allLocationsFromUser/" + id
+  );
+
+  if (reactionsLoading && fetchLoading) {
+    return <div>Lade Daten ...</div>;
+  }
+
+  if (reactionsError && fetchError) {
+    return <div>Fehler: {[reactionsError, fetchError]} </div>;
+  }
+
+  const reactionText = getReactionTextById("67c0da0c8aa67819df03c619");
+  const reactionSymbol = getReactionSymbolById("67c0da0c8aa67819df03c619");
+  console.log(fetchData);
+
   return (
     <main>
       <section className={styles.homeSection}>
@@ -14,6 +42,26 @@ export const Home = () => {
             MieterUnity!
           </span>
         </div>
+      </section>
+
+      <section>
+        {reactions?.data?.map((value) => (
+          <span key={value._id} style={{ margin: "5px" }}>
+            {value.symbol}
+          </span>
+        ))}
+
+        {reactionText ? (
+          <div>Reaktion-Text: {reactionText}</div>
+        ) : (
+          <div>Reaktion nicht gefunden</div>
+        )}
+
+        {reactionSymbol ? (
+          <div>Reaktion-Symbol: {reactionSymbol}</div>
+        ) : (
+          <div>Reaktion nicht gefunden</div>
+        )}
       </section>
 
       <section className={styles.homeSection}>

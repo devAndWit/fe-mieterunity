@@ -1,14 +1,28 @@
-import { Link } from "react-router";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext.jsx";
 import profil_icon from "../../assets/logo_with_background.png";
 import styles from "./Profile.module.css";
-import { useState } from "react";
+import ProfilEntry from "./ProfilEntry";
+import { FaChevronLeft } from "react-icons/fa";
+import { VscDebugBreakpointUnsupported } from "react-icons/vsc";
 
 export const Profile = () => {
+  const [createdAtString, setCreatedAtString] = useState();
   const [formData, setFormData] = useState({
     username: "",
     phone: "",
     email: "",
   });
+
+  const [arrow, setArrow] = useState({
+    locations: false,
+    setting: false,
+    password: false,
+    account: false,
+  });
+
+  const { user } = useContext(AuthContext);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -39,6 +53,31 @@ export const Profile = () => {
     }
   };
 
+  const handleArrowClick = (name) => {
+    setArrow((prevArrow) => ({ ...prevArrow, [name]: !arrow[name] }));
+    console.log(arrow);
+  };
+
+  useEffect(() => {
+    const loadUserData = () => {
+      setFormData((prevValues) => ({ ...prevValues, ["email"]: user.email }));
+    };
+
+    const createCreatedAtString = () => {
+      let date = new Date(user.createdAt);
+
+      let datum = date.toLocaleString("de-DE", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+
+      setCreatedAtString(datum);
+    };
+    loadUserData();
+    createCreatedAtString();
+  }, [user, arrow]);
+
   return (
     <main className="UserProfil">
       <section className={styles.profileSection}>
@@ -58,47 +97,19 @@ export const Profile = () => {
               <button>Profilbild ändern</button>
             </div>
 
-            <form className={styles.formData} onSubmit={handleSubmit}>
-              <p>
-                <label htmlFor="username">Benutzername:</label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Benutzername"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleInput}
-                />
-              </p>
+            <ProfilEntry
+              name={"Username:"}
+              value={
+                !formData.username ? "noch nicht festgelegt" : formData.username
+              }
+            ></ProfilEntry>
 
-              <p>
-                <label htmlFor="mail">Email:</label>
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInput}
-                />
-              </p>
+            <ProfilEntry name={"Email:"} value={formData.email}></ProfilEntry>
 
-              <p>
-                <label htmlFor="phone">Telefon:</label>
-                <input
-                  type="text"
-                  id="phone"
-                  placeholder="Telefon"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInput}
-                />
-              </p>
-
-              <p>
-                <button>Speichern</button>
-              </p>
-            </form>
+            <ProfilEntry
+              name={"angemeldet seit:"}
+              value={createdAtString}
+            ></ProfilEntry>
           </div>
         </article>
       </section>
@@ -106,7 +117,35 @@ export const Profile = () => {
       <section className={styles.profileSection}>
         <article className={styles.profileArticle}>
           <div className={styles.sectionContentText}>
-            <h2>weitere Daten</h2>
+            <div className={styles.sectionTitle}>
+              <h2>Adressen</h2>
+              <FaChevronLeft
+                className={
+                  arrow.locations ? styles.arrowDown : styles.arrowLeft
+                }
+                size="2rem"
+                name="arrowLocation"
+                onClick={() => {
+                  handleArrowClick("locations");
+                }}
+              />
+              <div
+                className={
+                  arrow.locations ? styles.maximized : styles.minimized
+                }
+              >
+                <p>Straße test</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section className={styles.profileSection}>
+        <article className={styles.profileArticle}>
+          <div className={styles.sectionContentText}>
+            <h2>Adressen</h2>
+
             <div className={styles.profileLinkList}>
               <p>
                 <span>Standort:</span>
