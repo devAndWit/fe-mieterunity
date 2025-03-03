@@ -1,26 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Logout.module.css";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
 
 export const Logout = () => {
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(),
-      });
-
-      if (response.ok) {
-        navigate("/");
-        console.log("Du bist ausgeloggt.");
-      } else {
-        console.log("Fehler bei der Anmeldung");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    logout();
   };
 
   const handleBack = () => {

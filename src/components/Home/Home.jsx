@@ -1,7 +1,21 @@
 import house_01 from "../../assets/house_01_pixabay.jpg";
 import styles from "./Home.module.css";
+import { useEffect } from "react";
+import useUser from "../../hooks/useUser.jsx";
 
 export const Home = () => {
+  // const {user, userError, userLoading} = useUser("67c4a6954dfbe261457be419");
+
+  // if (userLoading) {
+  //   return <div>Data Loading ... </div>;
+  // }
+
+  // if (userError) {
+  //   return <div>User Error: {userError}</div>;
+  // }
+
+  // console.log(user);
+
   return (
     <main>
       <section className={styles.homeSection}>

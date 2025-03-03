@@ -41,6 +41,7 @@ body {
   min-height: 100vh;
   grid-template-areas:
     "header header header"
+    "menu menu menu"
     ". main ."
     "footer footer footer";
   grid-template-columns: auto 10fr auto;
@@ -55,6 +56,10 @@ header {
   padding: 1rem;
   margin-bottom: 1rem;
   background-color: rgb(245, 245, 245, 0.8);
+}
+
+menu {
+  grid-area: menu;
 }
 
 main {

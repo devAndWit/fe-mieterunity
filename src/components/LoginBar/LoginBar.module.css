@@ -1,0 +1,8 @@
+.LoginBar {
+  display: flex;
+  justify-content: center;
+}
+
+.Link {
+  padding: 1rem;
+}

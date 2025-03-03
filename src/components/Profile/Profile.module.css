@@ -44,10 +44,12 @@
 }
 
 .sectionContentText {
+  position: relative;
   line-height: 1.5rem;
   width: 100%;
 
   h2 {
+    position: relative;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     min-height: 2rem;
@@ -56,6 +58,9 @@
   }
 }
 
+.sectionTitle {
+  position: relative;
+}
 .formData {
   display: flex;
   flex-direction: column;
@@ -169,6 +174,73 @@
     &:hover {
       background-color: var(--blue-100);
       box-shadow: 8px 8px 16px var(--black-60);
+    }
+  }
+}
+
+.test {
+  display: flex;
+  gap: 1rem;
+  /* background-color: pink; */
+}
+
+.name {
+  display: block;
+  width: 40%;
+  /* background-color: green; */
+  padding: 0.5rem;
+}
+
+.value {
+  display: block;
+  width: 60%;
+  /* background-color: green; */
+  padding: 0.5rem;
+}
+
+& .arrowLeft {
+  display: block;
+  position: absolute;
+  background-color: green;
+  transform: rotate(0deg);
+  transition: 0.3s all;
+  top: 0;
+  right: 0;
+}
+
+& .arrowDown {
+  display: block;
+  position: absolute;
+  background-color: green;
+  transform: rotate(-90deg);
+  transition: 0.3s all;
+  top: 0;
+  right: 0;
+}
+
+.minimized {
+  height: 0;
+}
+
+.maximized {
+  height: auto;
+}
+
+.ProfileAddressList {
+  
+  ul {
+    background-color: gray;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+
+    span {
+      display: block;
+      width: 100%;
     }
   }
 }
