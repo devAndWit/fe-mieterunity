@@ -1,11 +1,11 @@
-.profileSection {
+.section {
   display: block;
   /* min-height: 50vh; */
   margin: 4rem auto;
   width: 100%;
 }
 
-.headlineContainer {
+.container {
   position: relative;
   display: inline-block;
   flex-direction: column;
@@ -17,7 +17,7 @@
   box-shadow: 8px 8px 16px var(--black-40);
 }
 
-.headlineSpan {
+.headline {
   display: block;
   font-size: 2rem;
   background-image: linear-gradient(
@@ -34,213 +34,164 @@
   background-clip: text;
 }
 
-.profileArticle {
-  background-color: whitesmoke;
-  box-shadow: 8px 8px 16px var(--black-40);
-
-  padding: 4rem;
-  margin-bottom: 2rem;
-  border-radius: 4rem;
-}
-
-.sectionContentText {
+.dataContainer {
   position: relative;
-  line-height: 1.5rem;
   width: 100%;
-
-  h2 {
-    position: relative;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    min-height: 2rem;
-    text-align: left;
-    border-bottom: 1px solid black;
-  }
-}
-
-.sectionTitle {
-  position: relative;
-}
-.formData {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
-  gap: 1rem;
+  padding: 2rem;
+  background-color: whitesmoke;
+  /* font-weight: bold; */
+  letter-spacing: 1px;
+  border-radius: 2rem;
+  box-shadow: 8px 8px 16px var(--black-40);
+}
 
-  p {
-    display: flex;
-  }
-
-  label {
+.data {
+  input {
     display: block;
     width: 100%;
-
     padding: 0.5rem;
-    max-width: 300px;
+    background-color: lightgray;
+    border: 1px darkgray solid;
+    &:disabled {
+      user-select: none;
+    }
   }
+}
 
-  input,
-  input:active,
-  input:focus {
-    outline: none;
+.datarow {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem auto;
+}
+
+.datacontrol {
+  display: flex;
+
+  justify-content: center;
+  button {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.errorcontainer {
+  background-color: rosybrown;
+}
+
+.AddressList {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    padding: 0.5rem 1rem 0.5rem 2rem;
+
+    &::before {
+      position: absolute;
+      display: block;
+      content: "⌂";
+      top: 0;
+      bottom: 0;
+      left: 0.25rem;
+
+      height: 2rem;
+      font-size: 2rem;
+      color: lightblue;
+    }
+
+    span {
+      width: 100%;
+    }
+  }
+  button {
+    margin-top: 0.5rem;
+  }
+}
+
+.SaveAddress {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 2rem;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+    rgba(0, 150, 210, 0.5),
+    rgba(0, 150, 180, 0.5),
+    rgba(0, 150, 150, 0.5),
+    rgba(0, 150, 120, 0.5),
+    rgba(30, 150, 90, 0.5),
+    rgba(60, 150, 60, 0.5),
+    rgba(90, 150, 30, 0.5),
+    rgba(120, 150, 0, 0.5),
+    rgba(90, 150, 30, 0.5),
+    rgba(60, 150, 60, 0.5),
+    rgba(30, 150, 90, 0.5),
+    rgba(0, 150, 120, 0.5),
+    rgba(0, 150, 150, 0.5),
+    rgba(0, 150, 180, 0.5),
+    rgba(0, 150, 210, 0.5)
+  );
+
+  overflow: scroll;
+  z-index: 50;
+}
+
+.FormFrame {
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  flex-direction: column;
+  /* background-color: pink; */
+  background-color: whitesmoke;
+  padding: 2rem;
+  letter-spacing: 1px;
+  border-radius: 2rem;
+  box-shadow: 8px 8px 16px var(--black-40);
+  h2 {
+    padding: 2rem 0;
+    text-align: left;
+  }
+}
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    display: block;
+    padding: 0.4rem;
+    user-select: none;
   }
 
   input {
     display: block;
-
     width: 100%;
-    background-color: var(--black-20);
     padding: 0.5rem;
+    background-color: lightgray;
+    border: 1px darkgray solid;
   }
+
+  input:active,
+  input:focus {
+    outline: none;
+  }
+}
+
+.FormControl {
+  display: flex;
+  gap: 2rem;
 
   button {
-    display: block;
-    max-width: 200px;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-    background-color: green;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    background-color: var(--blue-60);
-    box-shadow: 8px 8px 16px var(--black-20);
-    transition: 0.3s all;
-
-    &:hover {
-      background-color: var(--blue-100);
-      box-shadow: 8px 8px 16px var(--black-60);
-    }
-  }
-}
-
-.userProfilImage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
-  figure {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 100rem;
-    overflow: hidden;
-  }
-
-  button {
-    display: block;
-    max-width: 200px;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: green;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    background-color: var(--blue-60);
-    box-shadow: 8px 8px 16px var(--black-20);
-    transition: 0.3s all;
-
-    &:hover {
-      background-color: var(--blue-100);
-      box-shadow: 8px 8px 16px var(--black-60);
-    }
-  }
-}
-
-.profileLinkList {
-  p {
-    display: flex;
-  }
-
-  span {
-    display: block;
-    width: 100%;
-
-    padding: 0.5rem;
-    max-width: 300px;
-  }
-
-  a {
-    display: block;
-    max-width: 200px;
-    width: 10rem;
-    text-align: center;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: green;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    background-color: var(--blue-60);
-    box-shadow: 8px 8px 16px var(--black-20);
-    transition: 0.3s all;
-
-    &:hover {
-      background-color: var(--blue-100);
-      box-shadow: 8px 8px 16px var(--black-60);
-    }
-  }
-}
-
-.test {
-  display: flex;
-  gap: 1rem;
-  /* background-color: pink; */
-}
-
-.name {
-  display: block;
-  width: 40%;
-  /* background-color: green; */
-  padding: 0.5rem;
-}
-
-.value {
-  display: block;
-  width: 60%;
-  /* background-color: green; */
-  padding: 0.5rem;
-}
-
-& .arrowLeft {
-  display: block;
-  position: absolute;
-  background-color: green;
-  transform: rotate(0deg);
-  transition: 0.3s all;
-  top: 0;
-  right: 0;
-}
-
-& .arrowDown {
-  display: block;
-  position: absolute;
-  background-color: green;
-  transform: rotate(-90deg);
-  transition: 0.3s all;
-  top: 0;
-  right: 0;
-}
-
-.minimized {
-  height: 0;
-}
-
-.maximized {
-  height: auto;
-}
-
-.ProfileAddressList {
-  
-  ul {
-    background-color: gray;
-  }
-
-  li {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem auto;
-    padding: 0.5rem;
-
-    span {
-      display: block;
-      width: 100%;
-    }
+    margin-top: 1rem;
   }
 }

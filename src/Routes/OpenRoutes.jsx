@@ -9,14 +9,7 @@ import { LegalNotice } from "../components/LegalNotice/LegalNotice.jsx";
 import { NotFound } from "../components/NotFound/NotFound.jsx";
 import { Logout } from "../components/Logout/Logout.jsx";
 
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext.jsx";
-
 export const OpenRoutes = () => {
-  const { isAuthenticated } = useContext(AuthContext);
-
-  console.log("OpenRoutes - isAuthenticated :", isAuthenticated);
-
   return (
     <Routes>
       <Route path="/" element={<OpenLayout />}>

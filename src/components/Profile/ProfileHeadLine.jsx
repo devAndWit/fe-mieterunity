@@ -4,9 +4,9 @@ export const ProfileHeadLine = ({ headline }) => {
   console.log("HIER");
   return (
     <>
-      <section className={styles.profileSection}>
-        <div className={styles.headlineContainer}>
-          <span className={styles.headlineSpan}>{headline}</span>
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <span className={styles.headline}>{headline}</span>
         </div>
       </section>
     </>

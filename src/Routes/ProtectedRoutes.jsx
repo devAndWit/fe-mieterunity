@@ -14,7 +14,6 @@ export const ProtectedRoutes = () => {
   const navigate = useNavigate();
 
   const { isAuthenticated } = useContext(AuthContext);
-  console.log("ProtectedRoutes - isAuthenticated :", isAuthenticated);
 
   useEffect(() => {
     if (!isAuthenticated) navigate("/");

@@ -108,6 +108,9 @@ export const AuthContextProvider = ({ children }) => {
         {},
         {
           withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
       setUser(null);

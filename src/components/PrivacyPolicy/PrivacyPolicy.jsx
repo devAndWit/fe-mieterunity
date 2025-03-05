@@ -3,6 +3,9 @@ import styles from "./PrivacyPolicy.module.css";
 export const PrivacyPolicy = () => {
   return (
     <main>
+
+
+
       <section className={styles.privacyPolicySection}>
         <div className={styles.headlineContainer}>
           <span className={styles.headlineSpan}>Datenschutz</span>

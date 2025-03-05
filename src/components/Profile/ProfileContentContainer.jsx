@@ -3,13 +3,11 @@ import styles from "./Profile.module.css";
 export const ProfileContentContainer = ({ title, children }) => {
   return (
     <>
-      <section className={styles.profileSection}>
-        <article className={styles.profileArticle}>
-          <div className={styles.sectionContentText}>
-            <h2>{title}</h2>
-            {children}
-          </div>
-        </article>
+      <section className={styles.section}>
+        <div className={styles.dataContainer}>
+          <h2>{title}</h2>
+          {children}
+        </div>
       </section>
     </>
   );

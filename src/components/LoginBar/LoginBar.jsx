@@ -6,7 +6,6 @@ import { AuthContext } from "../../contexts/AuthContext";
 export const LoginBar = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
-  console.log("LoginBar : ", isAuthenticated);
   return (
     <>
       <div className={styles.LoginBar}>
