@@ -20,16 +20,7 @@
 .headlineSpan {
   display: block;
   font-size: 2rem;
-  background-image: linear-gradient(
-    rgba(0, 150, 210, 0.8),
-    rgba(0, 150, 180, 0.8),
-    rgba(0, 150, 150, 0.8),
-    rgba(0, 150, 120, 0.8),
-    rgba(0, 150, 120, 0.8),
-    rgba(0, 150, 150, 0.8),
-    rgba(0, 150, 180, 0.8),
-    rgba(0, 150, 210, 0.8)
-  );
+  background-image: var(--bg-colorfull-half);
   color: rgba(0, 0, 0, 0.5);
   background-clip: text;
 }

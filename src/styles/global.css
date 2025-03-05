@@ -18,23 +18,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   /* background-color: var(--blue-40); */
-  background-image: linear-gradient(
-    rgba(0, 150, 210, 0.5),
-    rgba(0, 150, 180, 0.5),
-    rgba(0, 150, 150, 0.5),
-    rgba(0, 150, 120, 0.5),
-    rgba(30, 150, 90, 0.5),
-    rgba(60, 150, 60, 0.5),
-    rgba(90, 150, 30, 0.5),
-    rgba(120, 150, 0, 0.5),
-    rgba(90, 150, 30, 0.5),
-    rgba(60, 150, 60, 0.5),
-    rgba(30, 150, 90, 0.5),
-    rgba(0, 150, 120, 0.5),
-    rgba(0, 150, 150, 0.5),
-    rgba(0, 150, 180, 0.5),
-    rgba(0, 150, 210, 0.5)
-  );
+  background-image: var(--bg-colorfull-full);
 }
 
 .siteContent {

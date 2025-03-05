@@ -9,7 +9,7 @@ export const Header = () => {
   const { isAuthenticated } = useContext(AuthContext);
   return (
     <>
-      <header className={styles.Header}>
+      <header className={styles.Header} id="idHeader">
         <Nav />
         {isAuthenticated ? (
           <>
