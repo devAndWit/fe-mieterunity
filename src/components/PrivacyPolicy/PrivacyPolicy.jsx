@@ -1,4 +1,3 @@
-import styles from "./PrivacyPolicy.module.css";
 import HeadLine from "../Misc/HeadLine.jsx";
 import Section from "../Misc/Section.jsx";
 import Article from "../Misc/Article.jsx";
