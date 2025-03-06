@@ -52,7 +52,7 @@ export const Contact = () => {
       <section className={styles.contactSection}>
         <article className={styles.contactArticle}>
           <div className={styles.sectionContentText}>
-            <h2>Kontaktieren Sie uns</h2>
+            <h2 data-categorie="1">Kontaktieren Sie uns</h2>
             Wir freuen uns, von Ihnen zu hören! Bei MieterUnity sind wir stets
             daran interessiert, Ihre Fragen, Anregungen oder Ideen zu hören.
             Egal, ob Sie Unterstützung bei der Nutzung unserer Plattform
