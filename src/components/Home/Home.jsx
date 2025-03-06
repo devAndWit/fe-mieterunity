@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import house_01 from "../../assets/house_01_pixabay.jpg";
-import YesNoDialog from "../Misc/Dialogs/YesNoDialog.jsx";
 import styles from "./Home.module.css";
 
 export const Home = () => {
+  const visionRef = useRef(null);
+  // const aboutRef = useRef(null);
+
   return (
     <main>
       <section className={styles.homeSection}>
@@ -69,7 +71,12 @@ export const Home = () => {
         </article>
       </section>
 
-      <section id="vision" className={styles.homeSection}>
+      <section
+        id="visionRef"
+        className={styles.homeSection}
+        targetRef={visionRef}
+        scrollto={(ref) => ref.current.scrollIntoView({ behavior: "smooth" })}
+      >
         <article className={styles.homeArticle}>
           <div className={styles.sectionContentText}>
             <h2>Unsere Vision - MieterUnity</h2>
