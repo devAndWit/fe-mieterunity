@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+/* import { Routes, Route } from "react-router-dom";
 
 import OpenRoutes from "../src/routes/OpenRoutes.jsx";
 import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
 // import Bahman from "./components/Test/Bahman.jsx";
 
-import "./App.css";
+//import "./App.css";
 
 function App() {
   return (
@@ -27,3 +27,5 @@ function App() {
 }
 
 export default App;
+
+
