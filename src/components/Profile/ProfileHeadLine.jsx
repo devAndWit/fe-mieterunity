@@ -1,7 +1,7 @@
 import styles from "./Profile.module.css";
 
 export const ProfileHeadLine = ({ headline }) => {
-  console.log("HIER");
+  
   return (
     <>
       <section className={styles.section}>

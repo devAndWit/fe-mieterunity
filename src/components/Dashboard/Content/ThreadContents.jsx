@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // Beispiel: Hier könnte eine API-Aufruf zum Abrufen von Threads erfolgen
 function ThreadContent() {
@@ -20,7 +20,7 @@ function ThreadContent() {
   }, []);
 
   return (
-    <div className="thread-content">
+    <div>
       <h2>Threads</h2>
       {threads.length === 0 ? (
         <p>Es gibt derzeit keine Threads.</p>

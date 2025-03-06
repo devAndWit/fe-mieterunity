@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // Beispiel: Hier könnte eine API-Aufruf zum Abrufen von Direktnachrichten erfolgen
 function DirectMessagesContent() {

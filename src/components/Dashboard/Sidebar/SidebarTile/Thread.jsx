@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 //import { fetchSidebarData } from '';  //
-import "../../Styles/styles.css";
+
 import { AuthContext } from "../../../../contexts/AuthContext.jsx";
 
 function Thread() {
   const { backendUrl, user } = useContext(AuthContext);
-  console.log(backendUrl);
-  console.log(user);
+  
+  
 
   const [threadList, setThreadList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +25,7 @@ function Thread() {
           },
         });
 
-        console.log(response);
+        
 
         if (response && response.data && response.status === 200) {
           setThreadList(response.data.data || null);
@@ -56,9 +56,8 @@ function Thread() {
     return <div>Error at Thread Loading</div>;
   }
   if (!isLoading && !isError) {
-    console.log(threadList);
-    return (
-      <div className="sidebar-tile">
+        return (
+      <div>
         <ul>
           {threadList.map(
             (

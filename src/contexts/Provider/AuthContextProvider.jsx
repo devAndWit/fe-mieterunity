@@ -28,7 +28,7 @@ export const AuthContextProvider = ({ children }) => {
 
       if (!response.status === 201) {
         setError(response.data.message); // Zeigt die Nachricht vom Backend an.
-        console.log("Error-Signup : ", error);
+        
         return;
       }
 
@@ -41,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
 
       navigate("/login");
     } catch (error) {
-      console.log("Error - Signup: ");
+      
 
       const errorMessage = error.response.data.message;
 
@@ -115,7 +115,7 @@ export const AuthContextProvider = ({ children }) => {
       );
       setUser(null);
       setIsAuthenticated(false);
-      console.log("Logout : success");
+      
       navigate("/");
     } catch (error) {
       console.log("Error - Logout", error);

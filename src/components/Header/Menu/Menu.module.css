@@ -1,0 +1,14 @@
+.Menu {
+  display: flex;
+  justify-content: center;
+
+  a {
+    border-bottom: 2px transparent solid;
+    transition: 0.3s all;
+    padding: 0.5rem;
+
+    &:hover {
+      border-bottom: 2px darkgray solid;
+    }
+  }
+}

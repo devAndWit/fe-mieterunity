@@ -21,8 +21,6 @@ const useReactions = () => {
           },
         });
 
-        console.log(typeof response.data);
-
         if (!response.data) {
           setReactionsError("Die Reaktionsdaten sind leer.");
           setReactions([]); // Leeres Array setzen.
@@ -30,7 +28,6 @@ const useReactions = () => {
         }
         setReactions(response.data);
         setReactionsError(null);
-        
       } catch (err) {
         console.error(err);
         if (axios.isAxiosError(err)) {

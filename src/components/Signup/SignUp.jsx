@@ -47,11 +47,11 @@ export const SignUp = () => {
 
       switch (type) {
         case "email":
-          console.log("email :", formData.email);
+          
           return value.match(emailPattern);
 
         case "password":
-          console.log("password :", formData.password);
+          
           return value.match(passwordPattern);
       }
       return false;

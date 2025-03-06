@@ -28,8 +28,6 @@ export const ProfileUserAddressList = (props) => {
           }
         );
 
-        console.log(response.data.data);
-
         if (response && response.data && response.status === 200) {
           setLocationList(response.data.data || null);
         } else if (response && response.status === 304) {
@@ -61,7 +59,6 @@ export const ProfileUserAddressList = (props) => {
     );
   }
 
-  console.log("Output: ", locationList.locations);
   if (!isLoading && !isError) {
     const locations = locationList.locations;
     return (

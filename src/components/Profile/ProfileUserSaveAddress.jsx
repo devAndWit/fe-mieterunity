@@ -26,8 +26,7 @@ const ProfileUserSaveAddress = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
-
+    
     setFormData((prevValues) => ({ ...prevValues, [name]: value }));
   };
 

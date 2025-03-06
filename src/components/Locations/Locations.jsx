@@ -21,13 +21,12 @@ export const Locations = () => {
       ...prevAddressData,
       [name]: value,
     }));
-    console.log(addressData);
+    
   };
 
   const handleSaveData = (e) => {
     e.preventDefault();
-    console.log("speichern gedrückt");
-    console.log();
+    
   };
 
   return (

@@ -7,7 +7,6 @@ import styles from "./Profile.module.css";
 export const ProfileUserAddressItem = () => {
   const { backendUrl, user } = useContext(AuthContext);
   const userId = user._id;
-  console.log(userId);
 
   const [editMode, setEditMode] = useState(false);
   const [firstName, setFirstName] = useState("And");
@@ -23,14 +22,14 @@ export const ProfileUserAddressItem = () => {
       oldFirstName: document.getElementById("idFirstName").value,
       oldLastName: document.getElementById("idLastName").value,
     });
-    console.log("edit");
+
     setEditMode(true);
   };
 
   const handleAbort = (e) => {
     setFirstName(oldValue.oldFirstName);
     setLastName(oldValue.oldLastName);
-    console.log("abort");
+
     setEditMode(false);
   };
 
@@ -41,8 +40,6 @@ export const ProfileUserAddressItem = () => {
     };
 
     const update = async () => {
-      console.log("start update");
-
       try {
         const response = await axios.put(
           `${backendUrl}/users/${userId}`,
@@ -54,7 +51,7 @@ export const ProfileUserAddressItem = () => {
             },
           }
         );
-        console.log(response);
+        
         if (!response) {
           throw Error("Error: No Response from Update");
         }
@@ -67,7 +64,7 @@ export const ProfileUserAddressItem = () => {
 
     console.log(await update());
     setEditMode(false);
-    console.log("save");
+    
   };
 
   useEffect(() => {}, [firstName, lastName, editMode, oldValue]);

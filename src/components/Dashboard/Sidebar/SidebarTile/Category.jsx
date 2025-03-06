@@ -1,17 +1,23 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-//import { fetchSidebarData } from '';  //
-import "../../Styles/styles.css";
+
 import { AuthContext } from "../../../../contexts/AuthContext.jsx";
+import { DashboardContext } from "../../../../contexts/DashboardContext.jsx";
 
 function Category() {
   const { backendUrl, user } = useContext(AuthContext);
-  console.log(backendUrl);
 
   const [categoryList, setCategoryList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+
+  const { activeTile, setActiveTile } = useContext(DashboardContext);
+  const { categoryId, setCategoryId } = useContext(DashboardContext);
+
+  const handleChangeId = (e) => {
+    setCategoryId(e.target.dataset.id);
+  };
 
   useEffect(() => {
     // API-Daten holen
@@ -23,8 +29,6 @@ function Category() {
             "Content-Type": "application/json",
           },
         });
-
-        console.log(response);
 
         if (response && response.data && response.status === 200) {
           setCategoryList(response.data.data || null);
@@ -42,8 +46,15 @@ function Category() {
         setIsLoading(false);
       }
     };
+
+    function setSidbarTileValue() {
+      setActiveTile(1);
+      console.log(activeTile);
+    }
+
+    setSidbarTileValue();
     loadCategories();
-  }, [backendUrl]);
+  }, [activeTile, setActiveTile, backendUrl]);
 
   console.log("isLoading");
   if (isLoading) {
@@ -55,20 +66,14 @@ function Category() {
     return <div>Error at Category Loading</div>;
   }
   if (!isLoading && !isError) {
-    console.log(categoryList);
     return (
-      <div className="sidebar-tile">
+      <div>
         <ul>
-          {categoryList.map(
-            (
-              value,
-              index // Wichtig: Rückgabe mit Klammern
-            ) => (
-              <li key={index} data-id={value._id}>
-                {value.title}
-              </li>
-            )
-          )}
+          {categoryList.map((value, index) => (
+            <li key={index} data-id={value._id} onClick={handleChangeId}>
+              {value.title}
+            </li>
+          ))}
         </ul>
       </div>
     );

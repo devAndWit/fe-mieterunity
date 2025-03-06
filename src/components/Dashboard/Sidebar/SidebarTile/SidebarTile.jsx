@@ -1,14 +1,9 @@
 import { useContext } from "react";
-import DashboardContext from "../../../../contexts/DashboardContext.jsx";
+
+import styles from "./SidebarTile.module.css";
 
 export function SidebarTile({ children }) {
-  const { activeTile, setActiveTile } = useContext(DashboardContext);
-  return (
-    <>
-      <span>{activeTile}</span>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default SidebarTile;

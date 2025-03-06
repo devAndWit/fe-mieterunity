@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { DashboardContext } from "../DashboardContext";
 
 export const DashboardContextProvider = ({ children }) => {
-  const [activeTile, setActiveTile] = useState(-1);
-  const [categoryId, setCategoryId] = useState("-1");
-  const [threadId, setThreadId] = useState("-1");
-  const [directMsgId, setDirectMsg] = useState("-1");
+  const [activeTile, setActiveTile] = useState(0);
+  const [categoryId, setCategoryId] = useState(0);
+  const [threadId, setThreadId] = useState(0);
+  const [directMsgId, setDirectMsgId] = useState(0);
 
   const value = {
     activeTile,
@@ -15,7 +15,7 @@ export const DashboardContextProvider = ({ children }) => {
     threadId,
     setThreadId,
     directMsgId,
-    setDirectMsg,
+    setDirectMsgId,
   };
 
   return (

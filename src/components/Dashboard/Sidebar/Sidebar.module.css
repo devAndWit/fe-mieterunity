@@ -1,0 +1,9 @@
+.Sidebar {
+  
+  display: grid;
+  grid-template-rows: auto 1fr 1fr 1fr;
+
+  min-width: 300px;
+
+  background-color: pink;
+}

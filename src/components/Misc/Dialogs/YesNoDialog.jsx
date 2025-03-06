@@ -49,7 +49,7 @@ export default YesNoDialog;
 //   };
 
 //   const closeDialog = (result) => {
-//     console.log(result);
+
 //     setIsShowDialog(false);
 //   };
 
