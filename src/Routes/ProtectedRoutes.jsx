@@ -9,6 +9,8 @@ import { NotFound } from "../components/NotFound/NotFound.jsx";
 
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext.jsx";
+import { Dashboard } from "../components/Dashboard/Dashboard.jsx";
+import { Thread } from "./../components/Thread.jsx";
 
 export const ProtectedRoutes = () => {
   const navigate = useNavigate();
@@ -24,7 +26,10 @@ export const ProtectedRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<ProtectedLayout />}>
-        <Route index element={isAuthenticated ? <Profile /> : navigate("/")} />
+        <Route
+          index
+          element={isAuthenticated ? <Dashboard /> : navigate("/")}
+        />
 
         <Route
           path="locations"
@@ -45,7 +50,12 @@ export const ProtectedRoutes = () => {
 
         <Route
           path="dashboard"
-          element={isAuthenticated ? <Password /> : navigate("/")}
+          element={isAuthenticated ? <Dashboard /> : navigate("/")}
+        />
+
+        <Route
+          path="threads"
+          element={isAuthenticated ? <Thread /> : navigate("/")}
         />
 
         {"NotFound"}

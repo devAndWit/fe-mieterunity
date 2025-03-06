@@ -7,8 +7,8 @@ import { SignUp } from "../components/Signup/SignUp.jsx";
 import { PrivacyPolicy } from "../components/PrivacyPolicy/PrivacyPolicy.jsx";
 import { LegalNotice } from "../components/LegalNotice/LegalNotice.jsx";
 import { NotFound } from "../components/NotFound/NotFound.jsx";
-import Thread  from "../components/Thread.jsx";
-
+import Thread from "../components/Thread.jsx";
+import Logout from "../components/Logout/Logout.jsx";
 
 export const OpenRoutes = () => {
   return (
@@ -22,6 +22,7 @@ export const OpenRoutes = () => {
         <Route path="privacypolicy" element={<PrivacyPolicy />} />
         <Route path="legalnotice" element={<LegalNotice />} />
         <Route path="thread/:channelId" element={<Thread />} />
+        <Route path="logout" element={<Logout />} />
 
         {"NotFound"}
         <Route path="*" element={<NotFound />} />

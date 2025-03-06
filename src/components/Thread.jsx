@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react'; 
-import axios from 'axios';
-import './Thread.css';
+import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import "./Thread.css";
 
-function Thread({ threadId, fromUserId, toUserId }) {
-  const [newMessage, setNewMessage] = useState('');
-  const [messages, setMessages] = useState([]); 
+export function Thread({ threadId, fromUserId, toUserId }) {
+  const [newMessage, setNewMessage] = useState("");
+  const [messages, setMessages] = useState([]);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false); // Dark Mode Zustand
@@ -13,11 +13,13 @@ function Thread({ threadId, fromUserId, toUserId }) {
   useEffect(() => {
     const loadMessages = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/messages/threads/${threadId}`);
-        setMessages(response.data.messages); 
+        const response = await axios.get(
+          `http://localhost:8000/messages/threads/${threadId}`
+        );
+        setMessages(response.data.messages);
       } catch (error) {
-        setError('Fehler beim Laden der Nachrichten.');
-        console.error('Fehler beim Laden der Nachrichten:', error);
+        setError("Fehler beim Laden der Nachrichten.");
+        console.error("Fehler beim Laden der Nachrichten:", error);
       }
     };
 
@@ -30,22 +32,25 @@ function Thread({ threadId, fromUserId, toUserId }) {
   const handleSendMessage = useCallback(async () => {
     if (!newMessage.trim()) return;
 
-    setIsSending(true); 
+    setIsSending(true);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/messages/send', {
-        message: newMessage,
-        fromUserId,
-        toUserId,
-        reactions: [{ userRefId: fromUserId, reactionRefId: 'thumbs_up' }],
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/messages/send",
+        {
+          message: newMessage,
+          fromUserId,
+          toUserId,
+          reactions: [{ userRefId: fromUserId, reactionRefId: "thumbs_up" }],
+        }
+      );
 
       setMessages((prevMessages) => [...prevMessages, response.data.data]);
 
-      setNewMessage('');
+      setNewMessage("");
     } catch (error) {
-      setError('Fehler beim Senden der Nachricht.');
-      console.error('Fehler beim Senden der Nachricht:', error);
+      setError("Fehler beim Senden der Nachricht.");
+      console.error("Fehler beim Senden der Nachricht:", error);
     }
 
     setIsSending(false);
@@ -55,7 +60,7 @@ function Thread({ threadId, fromUserId, toUserId }) {
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <div className={`thread-container ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`thread-container ${isDarkMode ? "dark" : ""}`}>
       <div className="sidebar">
         <h3>Kanäle</h3>
         <ul>
@@ -68,7 +73,7 @@ function Thread({ threadId, fromUserId, toUserId }) {
       <div className="main-content">
         <div className="header">
           <button className="toggle-dark-mode" onClick={toggleDarkMode}>
-            {isDarkMode ? 'Lichtmodus' : 'Dunkelmodus'}
+            {isDarkMode ? "Lichtmodus" : "Dunkelmodus"}
           </button>
           <h2>Thread: {threadId}</h2>
         </div>
@@ -82,15 +87,17 @@ function Thread({ threadId, fromUserId, toUserId }) {
               <div key={msg._id} className="message">
                 <div className="message-header">
                   <strong>{msg.fromUserId}</strong>
-                  <span className="timestamp">{new Date(msg.createdAt).toLocaleString()}</span>
+                  <span className="timestamp">
+                    {new Date(msg.createdAt).toLocaleString()}
+                  </span>
                 </div>
                 <p>{msg.message}</p>
                 <div className="reactions">
                   {msg.reactions.map((reaction) => (
                     <span key={reaction._id} className="reaction">
-                      {reaction.reactionId === 'thumbs_up' && <span>👍</span>}
-                      {reaction.reactionId === 'thumbs_down' && <span>👎</span>}
-                      {reaction.reactionId === 'rocket' && <span>🚀</span>}
+                      {reaction.reactionId === "thumbs_up" && <span>👍</span>}
+                      {reaction.reactionId === "thumbs_down" && <span>👎</span>}
+                      {reaction.reactionId === "rocket" && <span>🚀</span>}
                     </span>
                   ))}
                 </div>
@@ -107,7 +114,7 @@ function Thread({ threadId, fromUserId, toUserId }) {
             onChange={(e) => setNewMessage(e.target.value)}
           />
           <button onClick={handleSendMessage} disabled={isSending}>
-            {isSending ? 'Senden...' : 'Senden'}
+            {isSending ? "Senden..." : "Senden"}
           </button>
         </div>
       </div>

@@ -1,5 +1,4 @@
 .Header {
-  position: fixed;
   grid-area: header;
   width: 100%;
   padding: 1rem;
@@ -59,7 +58,6 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    
 
     li {
       padding: 0.5rem;

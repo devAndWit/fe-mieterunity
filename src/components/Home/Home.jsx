@@ -1,11 +1,7 @@
-import { useRef } from "react";
 import house_01 from "../../assets/house_01_pixabay.jpg";
 import styles from "./Home.module.css";
 
 export const Home = () => {
-  const visionRef = useRef(null);
-  // const aboutRef = useRef(null);
-
   return (
     <main>
       <section className={styles.homeSection}>
@@ -71,12 +67,7 @@ export const Home = () => {
         </article>
       </section>
 
-      <section
-        id="visionRef"
-        className={styles.homeSection}
-        targetRef={visionRef}
-        scrollto={(ref) => ref.current.scrollIntoView({ behavior: "smooth" })}
-      >
+      <section className={styles.homeSection}>
         <article className={styles.homeArticle}>
           <div className={styles.sectionContentText}>
             <h2>Unsere Vision - MieterUnity</h2>
@@ -104,7 +95,7 @@ export const Home = () => {
         </article>
       </section>
 
-      <section id="about" className={styles.homeSection}>
+      <section className={styles.homeSection}>
         <article className={styles.homeArticle}>
           <div className={styles.sectionContentText}>
             <h2>Über uns – MieterUnity</h2>

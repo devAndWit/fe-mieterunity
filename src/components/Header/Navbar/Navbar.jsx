@@ -1,9 +1,9 @@
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../contexts/AuthContext.jsx";
 import styles from "../Header.module.css";
 
-export const Navbar = ({ targetRef, scrollTo }) => {
+export const Navbar = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (
@@ -12,22 +12,10 @@ export const Navbar = ({ targetRef, scrollTo }) => {
         <nav className={styles.Navbar}>
           <ul>
             <li>
-              <Link
-                onClick={() => {
-                  scrollTo(targetRef);
-                }}
-              >
-                Unsere Vision
-              </Link>
+              <Link>Unsere Vision</Link>
             </li>
             <li>
-              <Link
-                onClick={() => {
-                  scrollTo(targetRef);
-                }}
-              >
-                Über uns
-              </Link>
+              <Link>Über uns</Link>
             </li>
             <li>
               <Link to="/contact">Kontakt</Link>
