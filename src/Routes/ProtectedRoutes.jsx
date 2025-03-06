@@ -43,6 +43,11 @@ export const ProtectedRoutes = () => {
           element={isAuthenticated ? <Password /> : navigate("/")}
         />
 
+        <Route
+          path="dashboard"
+          element={isAuthenticated ? <Password /> : navigate("/")}
+        />
+
         {"NotFound"}
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useMemo } from "react";
+import axios from "axios";
 
 function useMongoPost(url, params = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const paramsString = useMemo(() => JSON.stringify(params), [params]);
 
   const postData = async (postBody) => {
     setLoading(true);

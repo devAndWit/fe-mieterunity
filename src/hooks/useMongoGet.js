@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 
 function useMongoGet(url, params = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const paramsString = useMemo(() => JSON.stringify(params), [params]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +24,7 @@ function useMongoGet(url, params = {}) {
     };
 
     fetchData();
-  }, [url, JSON.stringify(params)]); // JSON.stringify für deep comparison von params
+  }, [url, paramsString, params]); // paramsString und params hinzugefügt
 
   return { data, loading, error };
 }
