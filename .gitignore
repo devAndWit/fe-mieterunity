@@ -26,3 +26,5 @@ mock/
 *.njsproj
 *.sln
 *.sw?
+
+*storybook.log
