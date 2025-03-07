@@ -1,0 +1,8 @@
+.Item {
+  /* position: relative; */
+}
+
+.Message {
+    position: absolute;
+    bottom: 0;
+}

@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import styles from "./LoginBar.module.css";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 import { AuthContext } from "../../contexts/AuthContext";
+import styles from "./LoginBar.module.css";
 
 export const LoginBar = () => {
   const { isAuthenticated } = useContext(AuthContext);

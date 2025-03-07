@@ -1,6 +1,7 @@
 .Menu {
   display: flex;
   justify-content: center;
+  gap: 1rem;
 
   a {
     border-bottom: 2px transparent solid;

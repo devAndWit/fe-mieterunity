@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Password from "..//Password/Password.jsx";
 import styles from "./Account.module.css";
 
 export const Account = () => {
@@ -35,7 +36,6 @@ export const Account = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    
 
     setFormData((prevValues) => ({ ...prevValues, [name]: value }));
   };
@@ -87,7 +87,7 @@ export const Account = () => {
               </p>
 
               <p>
-                <label htmlFor="phone">Phone:</label>
+                <label htmlFor="phone">Telefon:</label>
                 <input
                   type="text"
                   id="phone"
@@ -100,13 +100,15 @@ export const Account = () => {
               <p>
                 <button type="submit">Speichern</button>
                 <button type="button" onClick={handleClose}>
-                  Close
+                  Abbrechen
                 </button>
               </p>
             </form>
           </div>
         </article>
       </section>
+
+      <Password></Password>
 
       <section className={styles.accountSection}>
         <article className={styles.accountArticle}>
@@ -120,6 +122,7 @@ export const Account = () => {
           </div>
         </article>
       </section>
+
     </main>
   );
 };

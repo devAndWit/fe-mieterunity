@@ -6,7 +6,7 @@ export const Logout = () => {
   return (
     <div className={styles.Link}>
       <IoMdPerson size="2rem" />
-      <Link to="/logout">logout</Link>
+      <Link to="/logout">Logout</Link>
     </div>
   );
 };

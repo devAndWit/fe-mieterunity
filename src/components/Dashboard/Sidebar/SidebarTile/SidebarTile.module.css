@@ -1,0 +1,15 @@
+.SideBarTile {
+  display: flex;
+  flex-direction: row;
+  
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+  transition: background-color 0.3s;
+  user-select: none;
+  background-color: #c5f2f7;
+}
+
+.TileItem {
+  
+}

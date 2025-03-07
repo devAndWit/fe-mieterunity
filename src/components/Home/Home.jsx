@@ -23,7 +23,7 @@ export const Home = () => {
               <h2>Deine Stimme zählt! </h2>
               Du bist genervt von chaotischen WhatsApp-Gruppen oder
               unbeantworteten E-Mails an die Hausverwaltung? MieterUnity bringt
-              deine Hausgemeinschaft zusammen – anonym, sicher und effizient.
+              deine Hausgemeinschaft zusammen – pseudonym, sicher und effizient.
               Tausche dich mit deinen Nachbarn aus, organisiere gemeinsame
               Aktionen und setze euch für ein besseres Wohnumfeld ein.
             </div>
@@ -57,10 +57,10 @@ export const Home = () => {
         </article>
 
         <article className={styles.homeCard}>
-          <h2>Sicher & anonym</h2>
+          <h2>Sicher & pseudonym</h2>
           <p>
             Deine Privatsphäre hat höchste Priorität. Auf MieterUnity kannst du
-            dich anonym registrieren und unter einem Pseudonym mit deinen
+            dich pseudonym registrieren und unter einem Pseudonym mit deinen
             Nachbarn kommunizieren – ohne Telefonnummer oder persönliche Daten
             preiszugeben.
           </p>
@@ -110,15 +110,16 @@ export const Home = () => {
             Lösung, um sich effizient mit Nachbarn über wichtige Themen
             auszutauschen, ohne in chaotischen WhatsApp-Gruppen oder endlosen
             E-Mail-Ketten zu versinken? Mit dieser Plattform wollen wir genau
-            das ändern – durch eine intuitive, sichere und anonyme Möglichkeit,
-            gemeinsam Probleme zu lösen und Aktionen zu organisieren. Während
-            unseres Bootcamps haben wir uns nicht nur tief in moderne
-            Technologien wie React, Node.js und MongoDB eingearbeitet, sondern
-            auch gelernt, Software zu entwickeln, die echten Mehrwert schafft.
-            MieterUnity ist unser erstes großes Projekt – und hoffentlich nur
-            der Anfang! Wir freuen uns, unsere Vision mit euch zu teilen und
-            sind gespannt auf das Feedback der Community. Lass uns gemeinsam die
-            Nachbarschaft digital revolutionieren! Euer MieterUnity-Team
+            das ändern – durch eine intuitive, sichere und pseudonyme
+            Möglichkeit, gemeinsam Probleme zu lösen und Aktionen zu
+            organisieren. Während unseres Bootcamps haben wir uns nicht nur tief
+            in moderne Technologien wie React, Node.js und MongoDB
+            eingearbeitet, sondern auch gelernt, Software zu entwickeln, die
+            echten Mehrwert schafft. MieterUnity ist unser erstes großes Projekt
+            – und hoffentlich nur der Anfang! Wir freuen uns, unsere Vision mit
+            euch zu teilen und sind gespannt auf das Feedback der Community.
+            Lass uns gemeinsam die Nachbarschaft digital revolutionieren! Euer
+            MieterUnity-Team
           </div>
         </article>
       </section>

@@ -1,3 +1,44 @@
-.DashboardSidebar {
-  
+.ContentContainer {
+  position: relative;
+  width: 100%;
+  /* background-color: green; */
+}
+
+.Content {
+}
+
+.Title {
+  display: block;
+  padding: 1rem;
+}
+
+.List {
+  display: block;
+  padding: 1rem;
+}
+
+.Message {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  border: 1px solid lightblue;
+
+  input {
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    outline: none;
+  }
+
+  button {
+    display: block;
+    width: 10rem;
+    border-radius: 1rem;
+  }
 }

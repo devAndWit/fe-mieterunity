@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 
-function useMongoGet(url, params = {}) {
+export function useMongoGet(url, params = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,7 +24,7 @@ function useMongoGet(url, params = {}) {
     };
 
     fetchData();
-  }, [url, paramsString, params]); // paramsString und params hinzugefügt
+  }, [url, paramsString]); 
 
   return { data, loading, error };
 }

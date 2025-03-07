@@ -44,50 +44,42 @@ export const Password = () => {
   };
 
   return (
-    <main>
-      <section className={styles.passwordSection}>
-        <div className={styles.headlineContainer}>
-          <span className={styles.headlineSpan}>Passwort</span>
+    <section className={styles.passwordSection}>
+      <article className={styles.passwordArticle}>
+        <div className={styles.sectionContentText}>
+          <form
+            className={styles.formData}
+            onSubmit={handleSubmit}
+            method="POST"
+          >
+            <p>
+              <label htmlFor="password">Passwort</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInput}
+              />
+            </p>
+            <p>
+              <label htmlFor="">Passwort Wiederholung</label>
+              <input
+                type="password"
+                id="passwordConfirm"
+                name="passwordConfirm"
+                value={formData.passwordConfirm}
+                onChange={handleInput}
+              />
+            </p>
+            <p>
+              <button type="submit">Speichern</button>
+              <button onClick={handleClose}>Abbrechen</button>
+            </p>
+          </form>
         </div>
-      </section>
-
-      <section className={styles.passwordSection}>
-        <article className={styles.passwordArticle}>
-          <div className={styles.sectionContentText}>
-            <form
-              className={styles.formData}
-              onSubmit={handleSubmit}
-              method="POST"
-            >
-              <p>
-                <label htmlFor="password">Passwort</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInput}
-                />
-              </p>
-              <p>
-                <label htmlFor="">Passwort Wiederholung</label>
-                <input
-                  type="password"
-                  id="passwordConfirm"
-                  name="passwordConfirm"
-                  value={formData.passwordConfirm}
-                  onChange={handleInput}
-                />
-              </p>
-              <p>
-                <button type="submit">Speichern</button>
-                <button onClick={handleClose}>Schließen</button>
-              </p>
-            </form>
-          </div>
-        </article>
-      </section>
-    </main>
+      </article>
+    </section>
   );
 };
 

@@ -14,12 +14,28 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  background-color: green;
+  background-color: whitesmoke;
+  background-image: var(--bg-colorfull-full);
   width: 100vw;
   height: 100vh;
   padding: 2rem;
 
   inset: 0;
+
+  p {
+    padding: 0.5rem;
+  }
+
+  label {
+    display: block;
+  }
+  input {
+    display: block;
+    padding: 0.5rem;
+    border: 1px solid var(--black-60);
+    border-radius: 0.5rem;
+    width: 100%;
+  }
 
   /* fixed inset-0 flex items-center justify-center bg-amber-400 bg-opacity-40 */
 }

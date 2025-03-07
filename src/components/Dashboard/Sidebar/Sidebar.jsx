@@ -1,11 +1,9 @@
-import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../../../contexts/AuthContext.jsx";
-
 import SidebarTile from "./SidebarTile/SidebarTile.jsx";
-import Category from "./SidebarTile/Category.jsx";
-import Thread from "./SidebarTile/Thread.jsx";
+import Category from "./SidebarTile/Tiles/CategoryTile.jsx";
+import Thread from "./SidebarTile/Tiles/ThreadTile.jsx";
 
 import styles from "./Sidebar.module.css";
+import DirectMessages from "./SidebarTile/Tiles/DirectMsgTile.jsx";
 
 export const Sidebar = () => {
   return (
@@ -15,6 +13,9 @@ export const Sidebar = () => {
       </SidebarTile>
       <SidebarTile>
         <Thread></Thread>
+      </SidebarTile>
+      <SidebarTile>
+        <DirectMessages></DirectMessages>
       </SidebarTile>
     </div>
   );
