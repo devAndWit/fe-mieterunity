@@ -9,7 +9,7 @@ import { LegalNotice } from "../components/LegalNotice/LegalNotice.jsx";
 import { NotFound } from "../components/NotFound/NotFound.jsx";
 import Thread from "../components/Thread.jsx";
 import Logout from "../components/Logout/Logout.jsx";
-import Multer from ""
+// import Multer from "./Multer.jsx";
 
 export const OpenRoutes = () => {
   return (
@@ -24,7 +24,7 @@ export const OpenRoutes = () => {
         <Route path="legalnotice" element={<LegalNotice />} />
         <Route path="thread/:channelId" element={<Thread />} />
         <Route path="logout" element={<Logout />} />
-        <Route path="Multer" element={<Multer />} />
+        {/* <Route path="Multer" element={<Multer />} /> */}
 
         {"NotFound"}
         <Route path="*" element={<NotFound />} />
