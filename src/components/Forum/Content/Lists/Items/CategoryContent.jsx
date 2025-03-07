@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 
 import { AuthContext } from "../../../../../contexts/AuthContext.jsx";
-import { DashboardContext } from "../../../../../contexts/DashboardContext.jsx";
+import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 import { useMongoGet } from "../../../../../hooks/useMongoGet.js";
 
 function CategoryContent() {
   const { backendUrl } = useContext(AuthContext);
-  const { categoryId, setCategoryId } = useContext(DashboardContext);
+  const { categoryId, setCategoryId } = useContext(ForumContext);
 
   const { data, loading, error } = useMongoGet(
     `${backendUrl}/categories/${categoryId}`

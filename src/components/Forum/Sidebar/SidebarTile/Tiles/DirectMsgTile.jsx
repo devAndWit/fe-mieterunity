@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../../../../contexts/AuthContext.jsx";
-import { DashboardContext } from "../../../../../contexts/DashboardContext.jsx";
+import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 import { IoMdPerson } from "react-icons/io";
 
 import styles from "./Tiles.module.css";
@@ -56,8 +56,8 @@ export const DirectMessages = () => {
     },
   ]);
 
-  const { activeTile, setActiveTile } = useContext(DashboardContext);
-  const { categoryId, setCategoryId } = useContext(DashboardContext);
+  const { activeTile, setActiveTile } = useContext(ForumContext);
+  const { categoryId, setCategoryId } = useContext(ForumContext);
 
   const handleChangeId = (e) => {
     setActiveTile(3);

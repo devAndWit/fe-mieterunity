@@ -11,7 +11,7 @@ export const Menu = () => {
       <menu className={styles.Menu}>
         {isAuthenticated ? (
           <>
-            <Link to="/profile/dashboard">Dashboard</Link>
+            <Link to="/profile/dashboard">Forum</Link>
             <Link to="/profile/locations">Standort</Link>
             <Link to="/profile/settings">Einstellungen</Link>
             <Link to="/profile/Account">Konto</Link>

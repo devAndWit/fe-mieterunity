@@ -2,12 +2,12 @@ import { useContext } from "react";
 
 import List from "./Lists/List.jsx";
 import { AuthContext } from "../../../contexts/AuthContext.jsx";
-import { DashboardContext } from "..//../../contexts/DashboardContext.jsx";
+import { ForumContext } from "../../../contexts/ForumContext.jsx";
 
 import styles from "./Content.module.css";
 
 const Content = () => {
-  const { activeTile } = useContext(DashboardContext);
+  const { activeTile } = useContext(ForumContext);
 
   return (
     <>

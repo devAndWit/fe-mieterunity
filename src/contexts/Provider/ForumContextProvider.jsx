@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { DashboardContext } from "../DashboardContext";
+import { ForumContext } from "../ForumContext";
 
-export const DashboardContextProvider = ({ children }) => {
+export const ForumContextProvider = ({ children }) => {
   const [activeTile, setActiveTile] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
   const [threadId, setThreadId] = useState(0);
@@ -19,10 +19,10 @@ export const DashboardContextProvider = ({ children }) => {
   };
 
   return (
-    <DashboardContext.Provider value={value}>
+    <ForumContext.Provider value={value}>
       {children}
-    </DashboardContext.Provider>
+    </ForumContext.Provider>
   );
 };
 
-export default DashboardContextProvider;
+export default ForumContextProvider;

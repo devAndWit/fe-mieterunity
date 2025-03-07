@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { AuthContext } from "../../../../contexts/AuthContext.jsx";
-import { DashboardContext } from "../../../../contexts/DashboardContext.jsx";
+import { ForumContext } from "../../../../contexts/ForumContext.jsx";
 import CategoryContent from "./Items/CategoryContent.jsx";
 import ThreadContents from "./Items/ThreadContents.jsx";
 import DirectMessagesContent from "./Items/DirectMessagesContent.jsx";
@@ -9,7 +9,7 @@ import DirectMessagesContent from "./Items/DirectMessagesContent.jsx";
 import styles from "./List.module.css";
 
 export const List = () => {
-  const { activeTile } = useContext(DashboardContext);
+  const { activeTile } = useContext(ForumContext);
 
   console.log(activeTile);
 

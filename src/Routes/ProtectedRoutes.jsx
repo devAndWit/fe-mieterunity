@@ -9,7 +9,7 @@ import { NotFound } from "../components/NotFound/NotFound.jsx";
 
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext.jsx";
-import { Dashboard } from "../components/Dashboard/Dashboard.jsx";
+import  { Forum } from "../components/Forum/Forum.jsx";
 import { Thread } from "./../components/Thread.jsx";
 
 export const ProtectedRoutes = () => {
@@ -28,7 +28,7 @@ export const ProtectedRoutes = () => {
       <Route path="/" element={<ProtectedLayout />}>
         <Route
           index
-          element={isAuthenticated ? <Dashboard /> : navigate("/")}
+          element={isAuthenticated ? <Forum /> : navigate("/")}
         />
 
 
@@ -51,7 +51,7 @@ export const ProtectedRoutes = () => {
 
         <Route
           path="dashboard"
-          element={isAuthenticated ? <Dashboard /> : navigate("/")}
+          element={isAuthenticated ? <Forum /> : navigate("/")}
         />
 
         <Route

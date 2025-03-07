@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { AuthContext } from "../../../../../contexts/AuthContext.jsx";
-import { DashboardContext } from "../../../../../contexts/DashboardContext.jsx";
+import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
 import styles from "./Tiles.module.css";
 
@@ -14,8 +14,8 @@ function Thread() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const { activeTile, setActiveTile } = useContext(DashboardContext);
-  const { categoryId, setCategoryId } = useContext(DashboardContext);
+  const { activeTile, setActiveTile } = useContext(ForumContext);
+  const { categoryId, setCategoryId } = useContext(ForumContext);
 
   const handleChangeId = (e) => {
     setActiveTile(2);
