@@ -9,6 +9,7 @@ import { LegalNotice } from "../components/LegalNotice/LegalNotice.jsx";
 import { NotFound } from "../components/NotFound/NotFound.jsx";
 import Thread from "../components/Thread.jsx";
 import Logout from "../components/Logout/Logout.jsx";
+
 // import Multer from "./Multer.jsx";
 
 export const OpenRoutes = () => {

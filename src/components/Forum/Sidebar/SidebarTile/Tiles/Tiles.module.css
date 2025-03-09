@@ -17,3 +17,16 @@
     }
   }
 }
+
+.SelectWrapper {
+}
+
+.TilesSelect {
+  display: block;
+  cursor: pointer;
+
+  option {
+    display: block;
+    padding: 0.5rem;
+  }
+}

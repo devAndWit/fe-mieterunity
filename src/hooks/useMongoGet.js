@@ -1,30 +1,27 @@
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import axios from "axios"; // Empfohlen für bessere Fehlerbehandlung und Konfiguration
 
-export function useMongoGet(url, params = {}) {
+export function useMongoGet(url, queryParams = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const paramsString = useMemo(() => JSON.stringify(params), [params]);
-
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       setLoading(true);
       setError(null);
-
       try {
-        const response = await axios.get(url, { params });
-        setData(response.data);
+        const response = await axios.get(url, { params: queryParams }); // Verwendung von axios mit Query-Parametern
+        setData(response.data); // Daten aus der axios-Antwort extrahieren
       } catch (err) {
         setError(err);
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     fetchData();
-  }, [url, paramsString]); 
+  }, [url, JSON.stringify(queryParams)]); // Abhängigkeiten für useEffect
 
   return { data, loading, error };
 }

@@ -7,10 +7,9 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState(null);
+  const [backendUrl, setBackendUrl] = useState("http://localhost:8000");
 
   const navigate = useNavigate();
-
-  const backendUrl = "http://localhost:8000";
 
   // FUNCTION SIGNUP
   const signup = async (formState) => {
@@ -28,7 +27,7 @@ export const AuthContextProvider = ({ children }) => {
 
       if (!response.status === 201) {
         setError(response.data.message); // Zeigt die Nachricht vom Backend an.
-        
+
         return;
       }
 
@@ -41,8 +40,6 @@ export const AuthContextProvider = ({ children }) => {
 
       navigate("/login");
     } catch (error) {
-      
-
       const errorMessage = error.response.data.message;
 
       switch (error.response.status) {
@@ -115,7 +112,7 @@ export const AuthContextProvider = ({ children }) => {
       );
       setUser(null);
       setIsAuthenticated(false);
-      
+
       navigate("/");
     } catch (error) {
       console.log("Error - Logout", error);
@@ -124,6 +121,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const value = {
     signup,
+    error,
     user,
     isAuthenticated,
     login,
