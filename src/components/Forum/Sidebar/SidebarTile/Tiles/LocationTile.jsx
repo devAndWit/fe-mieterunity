@@ -1,32 +1,39 @@
-import { useEffect, useContext, useState, useCallback } from "react";
-import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
-import { useMongoGet } from "./../../../../../hooks/useMongoGet.js";
-
-import styles from "./Tiles.module.css";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
+import { BACKEND_URL } from "../../../../../const/urls";
+import { ForumContext } from "../../../../../contexts/ForumContext";
 
 export const LocationTile = () => {
-  const { setLocations, locations, backendUrl, userId } =
-    useContext(ForumContext);
-  const [url, setUrl] = useState(null);
+  const {
+    setLocations,
+    currentLocation,
+    setCurrentLocation,
+    locations,
+    userId,
+  } = useContext(ForumContext);
 
-  const { data, loading, error } = useMongoGet(url);
+  const {
+    data: dataResponse,
+    isLoading: loading,
+    error,
+  } = useQuery({
+    queryKey: ["some-query"],
+    queryFn: async () => {
+      const response = await fetch(
+        `${BACKEND_URL}/users/allUserInformationsById/${userId}`
+      );
+      const result = await response.json();
+      if (result.data) {
+        setLocations(result.data.locations);
+      }
+      return result;
+    },
+  });
 
-  const checkId = useCallback(() => {
-    if (userId) {
-      setUrl(`${backendUrl}/users/allUserInformationsById/${userId}`);
-    }
-  }, [userId, backendUrl]);
-
-  useEffect(() => {
-    checkId();
-  }, [checkId]);
-
-  useEffect(() => {
-    if (!loading && error === null && data && data.locations) {
-      console.log(data);
-      setLocations(data);
-    }
-  }, [data, loading, error, setLocations]);
+  const handleClick = (id) => {
+    console.log("handleClick", id);
+    setCurrentLocation(id);
+  };
 
   if (loading) {
     return <div>Daten werden geladen...</div>;
@@ -36,14 +43,25 @@ export const LocationTile = () => {
     return <div>Fehler beim Laden der Standorte: {error.message}</div>;
   }
 
-  if (locations && locations.data) {
+  if (locations) {
     return (
       <div>
         Standorte geladen:
         <ul>
-          {locations.data.map((location, index) => (
-            <li key={index}>{location.name}</li>
-          ))}
+          {Array.isArray(locations) &&
+            locations.map((location, index) => {
+              console.log("LOCATION", location);
+              const name = `${location.street} ${location.houseNr}, ${location.city}`;
+              return (
+                <li
+                  key={index}
+                  onClick={() => handleClick(location._id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {name}
+                </li>
+              );
+            })}
         </ul>
       </div>
     );

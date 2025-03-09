@@ -11,7 +11,7 @@ import DirectMessages from "./SidebarTile/Tiles/DirectMsgTile.jsx";
 
 export const Sidebar = () => {
   const { user } = useContext(AuthContext);
-  
+
   const loacationsCount = user.locations.length;
   return (
     <div className={styles.Sidebar}>
@@ -22,9 +22,7 @@ export const Sidebar = () => {
       ) : (
         ""
       )}
-      <SidebarTile>
-        <Category></Category>
-      </SidebarTile>
+
       <SidebarTile>
         <Thread></Thread>
       </SidebarTile>
