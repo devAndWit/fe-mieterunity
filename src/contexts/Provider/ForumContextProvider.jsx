@@ -6,6 +6,12 @@ export const ForumContextProvider = ({ children }) => {
   const { backendUrl, user } = useContext(AuthContext);
   const userId = user?._id || null;
 
+  const [userData, setUserData] = useState({
+    data: null,
+    loading: false,
+    error: null,
+  });
+
   const [locationData, setLocationData] = useState({
     data: null,
     loading: false,
@@ -43,6 +49,9 @@ export const ForumContextProvider = ({ children }) => {
     () => ({
       userId,
       backendUrl,
+      users: userData,
+      setUsers: (data) => setUserData(data),
+      userLength: locationData.data?.length || 0,
       locations: locationData,
       setLocations: (data) => setLocationData(data),
       locationLength: locationData.data?.length || 0,
@@ -74,6 +83,7 @@ export const ForumContextProvider = ({ children }) => {
       userId,
       backendUrl,
       locationData,
+      userData,
       categoryData,
       threadData,
       messageData,

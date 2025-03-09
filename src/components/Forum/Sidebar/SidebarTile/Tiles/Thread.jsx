@@ -11,7 +11,6 @@ function Thread() {
   const { currentLocation, setThreads, threads, setCurrentTask } =
     useContext(ForumContext);
 
-  console.log("CURRENT LOCATION", currentLocation);
   const {
     data: dataResponse,
     isLoading: loading,
@@ -61,7 +60,7 @@ function Thread() {
 
   console.log(threads);
 
-  if (threads) {
+  if (threads && Array.isArray(threads) && threads.length > 0) {
     return (
       <>
         <div>
@@ -97,7 +96,8 @@ function Thread() {
 
   return (
     <>
-      <div>Keine Foren verfügbar.</div>;
+      <h2>Themen:</h2>
+      <div>Keine Foren verfügbar.</div>
       <div>
         <button
           onClick={() => {
