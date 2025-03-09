@@ -11,16 +11,19 @@ export const ForumContextProvider = ({ children }) => {
     loading: false,
     error: null,
   });
+
   const [categoryData, setCategoryData] = useState({
     data: null,
     loading: false,
     error: null,
   });
+
   const [threadData, setThreadData] = useState({
     data: null,
     loading: false,
     error: null,
   });
+
   const [messageData, setMessageData] = useState({
     data: null,
     loading: false,
@@ -33,6 +36,8 @@ export const ForumContextProvider = ({ children }) => {
     thread: null,
     message: null,
   });
+
+  const [currentTask, setCurrentTask] = useState(null);
 
   const value = useMemo(
     () => ({
@@ -62,6 +67,8 @@ export const ForumContextProvider = ({ children }) => {
       currentMessage: currentItems.message,
       setCurrentMessage: (message) =>
         setCurrentItems((prev) => ({ ...prev, message })),
+      currentTask,
+      setCurrentTask: (data) => setCurrentTask(data),
     }),
     [
       userId,
@@ -71,6 +78,8 @@ export const ForumContextProvider = ({ children }) => {
       threadData,
       messageData,
       currentItems,
+      currentTask,
+      setCurrentTask,
     ]
   );
 

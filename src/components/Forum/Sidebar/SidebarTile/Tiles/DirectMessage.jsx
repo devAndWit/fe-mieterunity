@@ -2,11 +2,11 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../../../../contexts/AuthContext.jsx";
 import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 import { IoMdPerson } from "react-icons/io";
-import useMongoGet from "./../../../../../hooks/useMongoGet.js";
+import useMongoGet from "../../../../../hooks/useMongoGet.js";
 
 import styles from "./Tiles.module.css";
 
-export const DirectMessages = () => {
+export const DirectMessage = () => {
   const { currentLocation, backendUrl, userId } = useContext(ForumContext);
 
   return (
@@ -20,4 +20,4 @@ export const DirectMessages = () => {
   );
 };
 
-export default DirectMessages;
+export default DirectMessage;

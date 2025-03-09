@@ -5,7 +5,7 @@ import styles from "./SidebarTile.module.css";
 export function SidebarTile({ children }) {
   return (
     <>
-      <div className={styles.SideBarTile}>{children}</div>
+      <div className={styles.SideBar}>{children}</div>
     </>
   );
 }

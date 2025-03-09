@@ -1,8 +1,9 @@
 .Sidebar {
-  display: grid;
-  grid-template-rows: auto 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
 
   min-width: 300px;
+  
 
   background-color: #7fcad2;
   padding: 2rem;

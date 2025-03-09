@@ -1,17 +1,19 @@
-import { useContext, useEffect } from "react";
-
-import List from "./Lists/List.jsx";
-import { AuthContext } from "../../../contexts/AuthContext.jsx";
+import { useContext } from "react";
 import { ForumContext } from "../../../contexts/ForumContext.jsx";
 
 import styles from "./Content.module.css";
 
-const Content = () => {
-  const { locationLength } = useContext(ForumContext);
+export const Content = () => {
+  const { currentTask } = useContext(ForumContext);
 
-  useEffect(() => {}, [locationLength]);
-
-  return <>{locationLength == 0 ? <div>test</div> : <div>content</div>}</>;
+  return (
+    <>
+      <div className={styles.ContentHeadLine}>
+        <div >{currentTask}</div>
+        <div>Test</div>
+      </div>
+    </>
+  );
 };
 
 export default Content;
