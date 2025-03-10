@@ -1,13 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
-import { tasks } from '../../../../../const/tasks.js';
+import { tasks } from "../../../../../const/tasks.js";
 import { BACKEND_URL } from "../../../../../const/urls.js";
 import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
+import styles from "./Tile.module.css";
 
 function Thread() {
-  const { currentLocation, setThreads, threads, setCurrentTask, setCurrentThread } =
-    useContext(ForumContext);
+  const {
+    currentLocation,
+    setThreads,
+    threads,
+    setCurrentTask,
+    setCurrentThread,
+  } = useContext(ForumContext);
+
   const {
     data: dataResponse,
     isLoading: loading,
@@ -29,14 +36,30 @@ function Thread() {
   });
 
   const handleClick = (thread) => {
-    console.log("THREAD INPUT", thread)
+    console.log("THREAD INPUT", thread);
     setCurrentTask(tasks.Thread);
-    setCurrentThread(thread._id)
+    setCurrentThread(thread._id);
   };
 
   const handleNewThread = () => {
-    setCurrentThread(null)
+    setCurrentThread(null);
     setCurrentTask(tasks.NewThread);
+  };
+
+  const controlButton = () => {
+    return (
+      <>
+        <div className={styles.ThreadControl}>
+          <button
+            onClick={() => {
+              handleNewThread();
+            }}
+          >
+            +
+          </button>
+        </div>
+      </>
+    );
   };
 
   /*------------------------------------------------*/
@@ -46,7 +69,7 @@ function Thread() {
   if (loading) {
     return (
       <>
-        <div>Daten werden geladen...</div>;
+        <div className={styles.Tile}>Daten werden geladen...</div>;
       </>
     );
   }
@@ -54,7 +77,10 @@ function Thread() {
   if (error) {
     return (
       <>
-        <div>Fehler beim Laden der ThreadListe: {error.message}</div>;
+        <div className={styles.Tile}>
+          Fehler beim Laden der ThreadListe: {error.message}
+        </div>
+        ;
       </>
     );
   }
@@ -62,7 +88,7 @@ function Thread() {
   if (threads && Array.isArray(threads) && threads.length > 0) {
     return (
       <>
-        <div>
+        <div className={styles.Tile}>
           <h2>Themen:</h2>
           <ul>
             {Array.isArray(threads) &&
@@ -79,13 +105,7 @@ function Thread() {
                 );
               })}
           </ul>
-          <button
-            onClick={() => {
-              handleNewThread();
-            }}
-          >
-            Neu erstellen 1
-          </button>
+          {controlButton()}
         </div>
       </>
     );
@@ -93,16 +113,10 @@ function Thread() {
 
   return (
     <>
-      <h2>Themen:</h2>
-      <div>Keine Foren verfügbar.</div>
-      <div>
-        <button
-          onClick={() => {
-            handleNewThread();
-          }}
-        >
-          Neu erstellen 2
-        </button>
+      <div className={styles.Tile}>
+        <h2>Themen:</h2>
+        <div>Keine Foren verfügbar.</div>
+        {controlButton()}
       </div>
     </>
   );

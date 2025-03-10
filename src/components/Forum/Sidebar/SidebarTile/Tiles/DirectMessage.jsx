@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { BACKEND_URL } from "../../../../../const/urls.js";
 import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
+import styles from "./Tile.module.css";
 
 export const DirectMessage = () => {
   const { users, setUsers, currentLocation, setCurrentTask } =
@@ -29,7 +30,7 @@ export const DirectMessage = () => {
     },
   });
 
-  console.log("dataResponse", dataResponse)
+  console.log("dataResponse", dataResponse);
 
   const handleClick = () => {
     console.log("SELECT USER : ", users._id);
@@ -45,7 +46,7 @@ export const DirectMessage = () => {
   if (loading) {
     return (
       <>
-        <div>Daten werden geladen...</div>;
+        <div className={styles.Tile}>Daten werden geladen...</div>;
       </>
     );
   }
@@ -53,7 +54,10 @@ export const DirectMessage = () => {
   if (error) {
     return (
       <>
-        <div>Fehler beim Laden der UserListe: {error.message}</div>;
+        <div className={styles.Tile}>
+          Fehler beim Laden der UserListe: {error.message}
+        </div>
+        ;
       </>
     );
   }
@@ -63,7 +67,7 @@ export const DirectMessage = () => {
   if (users && Array.isArray(users) && users.length > 0) {
     return (
       <>
-        <div>
+        <div className={styles.Tile}>
           <h2>Nachrichten:</h2>
 
           {console.log(Array.isArray(users))}
@@ -90,8 +94,10 @@ export const DirectMessage = () => {
 
   return (
     <>
-      <h2>Nachrichten:</h2>
-      <div>Keine anderen Nachbarn verfügbar.</div>
+      <div className={styles.Tile}>
+        <h2>Nachrichten:</h2>
+        <div>Keine anderen Nachbarn verfügbar.</div>
+      </div>
     </>
   );
 };

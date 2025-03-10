@@ -4,9 +4,9 @@ import { useContext } from "react";
 import { BACKEND_URL } from "../../../../../const/urls.js";
 import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
-import styles from "./Tiles.module.css";
+import styles from "./Tile.module.css";
 
- const Location = () => {
+const Location = () => {
   const {
     userId,
     setLocations,
@@ -16,10 +16,7 @@ import styles from "./Tiles.module.css";
     locations,
   } = useContext(ForumContext);
 
-  const {
-    isLoading: loading,
-    error,
-  } = useQuery({
+  const { isLoading: loading, error } = useQuery({
     queryKey: ["location", userId],
     queryFn: async () => {
       const response = await fetch(
@@ -31,11 +28,10 @@ import styles from "./Tiles.module.css";
         setLocations(result.data.locations);
       }
       return result;
-    }, 
+    },
   });
 
   console.log("LOCATIONS:", locations);
-
 
   const handleChange = (event) => {
     const selectedId = event.target.value;
@@ -49,46 +45,57 @@ import styles from "./Tiles.module.css";
   /*------------------------------------------------*/
 
   if (loading) {
-    return <div>Daten werden geladen...</div>;
+    return <div className={styles.Tile}>Daten werden geladen...</div>;
   }
 
   if (error) {
-    return <div>Fehler beim Laden der Standorte: {error.message}</div>;
+    return (
+      <div className={styles.Tile}>
+        Fehler beim Laden der Standorte: {error.message}
+      </div>
+    );
   }
 
   if (locations) {
     return (
       <>
-      <div className={styles.SelectWrapper}>
-        <>
-          <label htmlFor="idLocation">Standort:</label>
+        <div className={styles.Tile}>
+          <div className={styles.SelectWrapper}>
+            <label htmlFor="idLocation">Standort:</label>
 
-          <select
-            name="location"
-            id="idLocation"
-            value={currentLocation || ""}
-            onChange={handleChange}
-          >
-            <option value="" disabled>
-              Bitte wählen Sie einen Standort
-            </option>
-            {Array.isArray(locations) &&
-              locations.map((location, index) => {
-                const name = `${location.street} ${location.houseNr}, ${location.city}`;
-                return (
-                  <option key={index} value={location._id}>
-                    {name}
-                  </option>
-                );
-              })}
-          </select>
-        </>
-      </div>
-    </>
+            <select
+              className={styles.TilesSelect}
+              name="location"
+              id="idLocation"
+              value={currentLocation || ""}
+              onChange={handleChange}
+            >
+              <option value="" disabled>
+                Bitte wählen Sie einen Standort
+              </option>
+              {Array.isArray(locations) &&
+                locations.map((location, index) => {
+                  const name = `${location.street} ${location.houseNr}, ${location.city}`;
+                  return (
+                    <option key={index} value={location._id}>
+                      {name}
+                    </option>
+                  );
+                })}
+            </select>
+          </div>
+        </div>
+      </>
     );
   }
 
-  return <div>Keine Standorte verfügbar.</div>;
+  return (
+    <>
+      <div className={styles.Tile}>
+        <div>Keine Standorte verfügbar.</div>;
+      </div>
+    </>
+  );
 };
 
 export default Location;

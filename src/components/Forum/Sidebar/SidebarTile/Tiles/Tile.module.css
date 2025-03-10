@@ -1,10 +1,16 @@
-.Tiles {
+.Tile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
+  border-bottom: 1px solid black;
+
   ul {
     padding: 0;
+    display: flex;
+    flex-direction: column;
 
     li {
-      display: flex;
-      align-items: center;
       list-style-type: none;
       padding: 0.5rem 0 0.5rem 1rem;
       color: #000;
@@ -27,9 +33,19 @@
 .TilesSelect {
   display: block;
   cursor: pointer;
+  padding: 0.5rem;
 
   option {
     display: block;
     padding: 0.5rem;
+  }
+}
+
+.ThreadControl {
+  button {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
   }
 }

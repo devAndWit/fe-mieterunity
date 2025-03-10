@@ -11,22 +11,16 @@ import styles from "./Sidebar.module.css";
 export const Sidebar = () => {
   const { user } = useContext(AuthContext);
 
-  const loacationsCount = user.locations.length;
   return (
     <div className={styles.Sidebar}>
-      {loacationsCount > 1 ? (
-        <SidebarTile>
-          <Location />
-        </SidebarTile>
-      ) : (
-        ""
-      )}
-
+      <SidebarTile>
+        <Location />
+      </SidebarTile>
       <SidebarTile>
         <Thread />
       </SidebarTile>
       <SidebarTile>
-        <DirectMessage></DirectMessage>
+        <DirectMessage/>
       </SidebarTile>
     </div>
   );

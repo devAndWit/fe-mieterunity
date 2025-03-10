@@ -1,8 +1,5 @@
-.Sidebar {
-
-}
-
 .SideBarTile {
+  position: relative;
   display: flex;
   flex-direction: row;
 
@@ -11,8 +8,8 @@
   margin: 10px 0;
   transition: background-color 0.3s;
   user-select: none;
-  background-color: #c5f2f7;
-}
 
-.TileItem {
+  h2 {
+    font-size: 1.2rem;
+  }
 }

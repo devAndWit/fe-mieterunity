@@ -31,7 +31,7 @@ export const Locations = () => {
 
   return (
     <main>
-      <h1>Standort</h1>
+      <h2>Themen:</h2>
 
       <div>
         <h2>Adressliste:</h2>

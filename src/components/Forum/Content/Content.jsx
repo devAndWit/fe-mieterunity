@@ -4,12 +4,14 @@ import { tasks } from "../../../const/tasks.js";
 import { BACKEND_URL } from "../../../const/urls.js";
 import { ForumContext } from "../../../contexts/ForumContext.jsx";
 import Thread from "../Sidebar/SidebarTile/Tiles/Thread.jsx";
+import ThreadList from "./Lists/ThreadList.jsx"
 import styles from "./Content.module.css";
 import { NewMessage } from "./Dialogs/NewMessage.jsx";
 import NewThread from "./Dialogs/NewThread.jsx";
 
 export const Content = () => {
-  const { currentTask, currentLocation,  currentThread } = useContext(ForumContext);
+  const { currentTask, currentLocation, currentThread } =
+    useContext(ForumContext);
 
   const {
     data: threads,
@@ -34,11 +36,14 @@ export const Content = () => {
   const renderContent = (variant) => {
     switch (variant) {
       case tasks.NewThread:
+        // return 1;
         return <NewThread />;
       case tasks.Thread:
-          return <Thread />;
+        return 2;
+        return <ThreadList />;
       case tasks.Message:
-        return <NewMessage />;
+        return 3;
+      // return <NewMessage />;
       default:
         return <div>Keine Nachrichten oder Threads vorhanden</div>;
     }
@@ -48,10 +53,10 @@ export const Content = () => {
     <>
       <div className={styles.ContentHeadLine}>
         <div>{currentTask}</div>
-        {Array.isArray(threads) && threads.map((thread) => {
-          return <div key={thread._id}>{thread.message}</div>;
-
-        })}
+        {Array.isArray(threads) &&
+          threads.map((thread) => {
+            return <div key={thread._id}>{thread.message}</div>;
+          })}
         {renderContent(currentTask)}
       </div>
     </>
