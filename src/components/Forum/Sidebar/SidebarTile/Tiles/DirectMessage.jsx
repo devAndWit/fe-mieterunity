@@ -1,12 +1,9 @@
-import { useEffect, useState, useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { IoMdPerson } from "react-icons/io";
+import { useContext } from "react";
 
-import { AuthContext } from "../../../../../contexts/AuthContext.jsx";
-import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 import { BACKEND_URL } from "../../../../../const/urls.js";
+import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
-import styles from "./Tiles.module.css";
 
 export const DirectMessage = () => {
   const { users, setUsers, currentLocation, setCurrentTask } =
@@ -31,6 +28,8 @@ export const DirectMessage = () => {
       return result;
     },
   });
+
+  console.log("dataResponse", dataResponse)
 
   const handleClick = () => {
     console.log("SELECT USER : ", users._id);

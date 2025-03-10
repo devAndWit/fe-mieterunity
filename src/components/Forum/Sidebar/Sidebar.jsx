@@ -1,10 +1,10 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "./../../../contexts/AuthContext.jsx";
 
 import SidebarTile from "./SidebarTile/SidebarTile.jsx";
+import DirectMessage from "./SidebarTile/Tiles/DirectMessage.jsx";
 import Location from "./SidebarTile/Tiles/Location.jsx";
 import Thread from "./SidebarTile/Tiles/Thread.jsx";
-import DirectMessage from "./SidebarTile/Tiles/DirectMessage.jsx";
 
 import styles from "./Sidebar.module.css";
 
@@ -16,14 +16,14 @@ export const Sidebar = () => {
     <div className={styles.Sidebar}>
       {loacationsCount > 1 ? (
         <SidebarTile>
-          <Location></Location>
+          <Location />
         </SidebarTile>
       ) : (
         ""
       )}
 
       <SidebarTile>
-        <Thread></Thread>
+        <Thread />
       </SidebarTile>
       <SidebarTile>
         <DirectMessage></DirectMessage>

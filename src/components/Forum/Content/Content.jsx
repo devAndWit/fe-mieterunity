@@ -1,27 +1,58 @@
+import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
+import { tasks } from "../../../const/tasks.js";
+import { BACKEND_URL } from "../../../const/urls.js";
 import { ForumContext } from "../../../contexts/ForumContext.jsx";
-
-import { NewThread } from "./Dialogs/NewThread.jsx";
-import { NewMessage } from "./Dialogs/NewMessage.jsx";
-
+import Thread from "../Sidebar/SidebarTile/Tiles/Thread.jsx";
 import styles from "./Content.module.css";
+import { NewMessage } from "./Dialogs/NewMessage.jsx";
+import NewThread from "./Dialogs/NewThread.jsx";
 
 export const Content = () => {
-  const { currentTask, currentThread } = useContext(ForumContext);
+  const { currentTask, currentLocation,  currentThread } = useContext(ForumContext);
 
-  if (currentTask == "Thread") {
-    <NewThread></NewThread>;
-  }
+  const {
+    data: threads,
+    isLoading: loading,
+    error,
+  } = useQuery({
+    queryKey: ["thread", currentThread, currentLocation],
+    queryFn: async () => {
+      const response = await fetch(
+        `${BACKEND_URL}/messages/allMessagesFromThreadId/${currentThread}`
+      );
+      const result = await response.json();
 
-  if (currentTask == "Message") {
-    <NewMessage></NewMessage>;
-  }
+      if (result.data) {
+        console.log("RETURN:::", result.data);
+        return result.data;
+      }
+    },
+    enabled: !!currentThread,
+  });
+
+  const renderContent = (variant) => {
+    switch (variant) {
+      case tasks.NewThread:
+        return <NewThread />;
+      case tasks.Thread:
+          return <Thread />;
+      case tasks.Message:
+        return <NewMessage />;
+      default:
+        return <div>Keine Nachrichten oder Threads vorhanden</div>;
+    }
+  };
 
   return (
     <>
       <div className={styles.ContentHeadLine}>
         <div>{currentTask}</div>
-        <div>Test</div>
+        {Array.isArray(threads) && threads.map((thread) => {
+          return <div key={thread._id}>{thread.message}</div>;
+
+        })}
+        {renderContent(currentTask)}
       </div>
     </>
   );

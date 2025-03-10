@@ -1,22 +1,20 @@
-import { useEffect, useState, useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
-
-import { AuthContext } from "../../../../../contexts/AuthContext.jsx";
-import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
+import { useContext } from "react";
+import { tasks } from '../../../../../const/tasks.js';
 import { BACKEND_URL } from "../../../../../const/urls.js";
+import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
-import styles from "./Tiles.module.css";
 
 function Thread() {
-  const { currentLocation, setThreads, threads, setCurrentTask } =
+  const { currentLocation, setThreads, threads, setCurrentTask, setCurrentThread } =
     useContext(ForumContext);
-
   const {
     data: dataResponse,
     isLoading: loading,
     error,
   } = useQuery({
-    queryKey: [currentLocation],
+    queryKey: ["thread", currentLocation],
+    // enabled: !!currentLocation,
     queryFn: async () => {
       const response = await fetch(
         `${BACKEND_URL}/threads/findThreadsByAddressId/${currentLocation}`
@@ -24,19 +22,22 @@ function Thread() {
       const result = await response.json();
 
       if (result.data) {
-        console.log("TYPEOF", typeof result.data);
         setThreads(result.data);
       }
       return result;
     },
   });
 
-  const handleClick = (threads) => {
-    console.log("SELECTED THREAD :", threads._id);
-    setCurrentTask("Thread");
+  const handleClick = (thread) => {
+    console.log("THREAD INPUT", thread)
+    setCurrentTask(tasks.Thread);
+    setCurrentThread(thread._id)
   };
 
-  const handleNewThread = () => {};
+  const handleNewThread = () => {
+    setCurrentThread(null)
+    setCurrentTask(tasks.NewThread);
+  };
 
   /*------------------------------------------------*/
   // Output
@@ -58,18 +59,14 @@ function Thread() {
     );
   }
 
-  console.log(threads);
-
   if (threads && Array.isArray(threads) && threads.length > 0) {
     return (
       <>
         <div>
           <h2>Themen:</h2>
-          {console.log(Array.isArray(threads))}
           <ul>
             {Array.isArray(threads) &&
               threads.map((thread, index) => {
-                console.log(thread);
                 return (
                   <li
                     key={index}
@@ -87,7 +84,7 @@ function Thread() {
               handleNewThread();
             }}
           >
-            Neu erstellen
+            Neu erstellen 1
           </button>
         </div>
       </>
@@ -104,7 +101,7 @@ function Thread() {
             handleNewThread();
           }}
         >
-          Neu erstellen
+          Neu erstellen 2
         </button>
       </div>
     </>
