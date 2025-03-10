@@ -4,14 +4,19 @@ import { tasks } from "../../../const/tasks.js";
 import { BACKEND_URL } from "../../../const/urls.js";
 import { ForumContext } from "../../../contexts/ForumContext.jsx";
 import Thread from "../Sidebar/SidebarTile/Tiles/Thread.jsx";
-import ThreadList from "./Lists/ThreadList.jsx"
-import styles from "./Content.module.css";
+import ThreadList from "./Lists/ThreadList.jsx";
 import { NewMessage } from "./Dialogs/NewMessage.jsx";
 import NewThread from "./Dialogs/NewThread.jsx";
+import { useEffect } from "react";
+import { useState } from "react";
+
+import styles from "./Content.module.css";
 
 export const Content = () => {
-  const { currentTask, currentLocation, currentThread } =
+  const { currentTask, currentLocation, currentThread, reload } =
     useContext(ForumContext);
+
+  const [refresh, setRefresh] = useState(false);
 
   const {
     data: threads,
@@ -39,7 +44,7 @@ export const Content = () => {
         // return 1;
         return <NewThread />;
       case tasks.Thread:
-        return 2;
+        // return 2;
         return <ThreadList />;
       case tasks.Message:
         return 3;
@@ -51,13 +56,15 @@ export const Content = () => {
 
   return (
     <>
-      <div className={styles.ContentHeadLine}>
-        <div>{currentTask}</div>
-        {Array.isArray(threads) &&
-          threads.map((thread) => {
-            return <div key={thread._id}>{thread.message}</div>;
-          })}
-        {renderContent(currentTask)}
+      <div className={styles.ContentContainer}>
+        <div className={styles.ContentHeadLine}>
+          <div>{currentTask}</div>
+          {Array.isArray(threads) &&
+            threads.map((thread) => {
+              return <div key={thread._id}>{thread.message}</div>;
+            })}
+          <div className={styles.Content}>{renderContent(currentTask)}</div>
+        </div>
       </div>
     </>
   );

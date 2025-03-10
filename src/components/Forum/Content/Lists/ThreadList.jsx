@@ -5,7 +5,7 @@ export const ThreadList = () => {
   return (
     <>
       <div className={styles.ThreadList}>
-        <div className={styles.ThreadItem}></div>
+        <div className={styles.ThreadListItem}></div>
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import { useCategories } from "../../../../hooks/useCategories";
+import styles from "./Dialogs.module.css";
 
 export const CategoryDropdown = ({ handleChange }) => {
   const { data: categories, isLoading, error } = useCategories();
@@ -16,19 +17,28 @@ export const CategoryDropdown = ({ handleChange }) => {
     return <div>Error loading categories: {error.message}</div>;
   }
 
-  console.log("categories", categories)
+  console.log("categories", categories);
 
   return (
-    <select name="categoryId" onChange={handleChange}>
-      <option value="" disabled>
-        Select a category
-      </option>
-      {categories.map((category) => (
-        <option key={category._id} value={category._id}>
-          {category.title}
+    <>
+      <select
+        className={styles.CategoryDropdown}
+        name="categoryId"
+        onChange={handleChange}
+      >
+        <option className={styles.CategoryDropdownOption} value="" disabled>
+          Kategorieauswahl
         </option>
-      ))}
-    </select>
+        {categories.map((category) => (
+          <option
+            className={styles.CategoryDropdownOption}
+            key={category._id}
+            value={category._id}
+          >
+            {category.title}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
-

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // Beispiel: Hier könnte eine API-Aufruf zum Abrufen von Threads erfolgen
-function ThreadContent() {
+function ThreadItem() {
   return (
     <>
       <div>Threads</div>
@@ -9,4 +9,4 @@ function ThreadContent() {
   );
 }
 
-export default ThreadContent; // Standard-Export
+export default ThreadItem; // Standard-Export

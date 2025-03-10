@@ -45,6 +45,8 @@ export const ForumContextProvider = ({ children }) => {
 
   const [currentTask, setCurrentTask] = useState(null);
 
+  const [reload, setReload] = useState(false);
+
   const value = useMemo(
     () => ({
       userId,
@@ -78,6 +80,8 @@ export const ForumContextProvider = ({ children }) => {
         setCurrentItems((prev) => ({ ...prev, message })),
       currentTask,
       setCurrentTask: (data) => setCurrentTask(data),
+      reload,
+      setReload: () => setReload((prevReload) => !prevReload),
     }),
     [
       userId,
@@ -90,6 +94,8 @@ export const ForumContextProvider = ({ children }) => {
       currentItems,
       currentTask,
       setCurrentTask,
+      reload,
+      setReload,
     ]
   );
 

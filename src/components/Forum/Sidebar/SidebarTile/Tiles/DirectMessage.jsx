@@ -32,12 +32,10 @@ export const DirectMessage = () => {
 
   console.log("dataResponse", dataResponse);
 
-  const handleClick = () => {
-    console.log("SELECT USER : ", users._id);
+  const handleClick = (userTo) => {
+    console.log("SELECTED USER : ", userTo);
     setCurrentTask("Message");
   };
-
-  const handleNewUser = () => {};
 
   /*------------------------------------------------*/
   // Output
@@ -55,7 +53,7 @@ export const DirectMessage = () => {
     return (
       <>
         <div className={styles.Tile}>
-          Fehler beim Laden der UserListe: {error.message}
+          Fehler beim Laden der Benutzerliste: {error.message}
         </div>
         ;
       </>
@@ -69,17 +67,14 @@ export const DirectMessage = () => {
       <>
         <div className={styles.Tile}>
           <h2>Nachrichten:</h2>
-
-          {console.log(Array.isArray(users))}
           <ul>
             {Array.isArray(users) &&
               users.map((user, index) => {
-                console.log(user);
                 return (
                   <li
                     key={index}
                     onClick={() => {
-                      handleClick(user);
+                      handleClick(user._id);
                     }}
                   >
                     {user.email}

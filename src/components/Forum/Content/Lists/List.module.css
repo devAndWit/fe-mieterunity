@@ -1,8 +1,8 @@
-.Item {
+.ThreadList {
   /* position: relative; */
 }
 
-.Message {
-    position: absolute;
-    bottom: 0;
+.ThreadListItem {
+  position: absolute;
+  bottom: 0;
 }

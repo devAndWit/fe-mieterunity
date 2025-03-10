@@ -116,7 +116,7 @@ function Thread() {
       <div className={styles.Tile}>
         <h2>Themen:</h2>
         <div>Keine Foren verfügbar.</div>
-        {controlButton()}
+        {currentLocation ? controlButton() : ""}
       </div>
     </>
   );
