@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import axios from "axios";
 
-export function useMongoGet(url, queryParams = {}) {
+export function useMongoGet(url, params = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  console.log("UseMongoGet - Init");
+  console.log("UseMongoGet - Params", params);
+  const queryParams = useMemo(() => JSON.stringify(params), [params]);
 
   useEffect(() => {
     async function fetchData() {
@@ -13,10 +17,12 @@ export function useMongoGet(url, queryParams = {}) {
       if (!url || url === null || url === "null") {
         console.log("ERROR: get null as param");
         setData(null);
-        setError("keine Url");
+        setError({ msg: "keine Url" });
         setLoading(false);
         return [data, loading, error];
       }
+
+      ("Start Get Process");
       setLoading(true);
       setError(null);
 
@@ -65,7 +71,7 @@ export function useMongoGet(url, queryParams = {}) {
       }
     }
     fetchData();
-  }, [url, JSON.stringify(queryParams)]);
+  }, [url, queryParams]);
 
   return { data, loading, error };
 }

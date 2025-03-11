@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import axios from "axios";
 
-function useMongoDelete(url, params = {}) {
+export function useMongoDelete(url, params = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
