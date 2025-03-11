@@ -1,11 +1,14 @@
 .Forum {
   display: flex;
-  max-width: 90%;
-  margin: 0 auto;
+
   background-color: whitesmoke;
-  padding: 0 1rem 0 0;
-  border-radius: 4rem;
-  overflow: hidden;
-  margin-top: 4rem;
+  padding: 1rem;
+  margin: 2rem auto 0 auto;
+  border-radius: 2rem;
+
+  max-width: 90%;
+  max-height: 600px;
+  overflow: scroll;
+
   box-shadow: 8px 8px 16px var(--black-40);
 }

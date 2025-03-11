@@ -1,0 +1,51 @@
+.Tile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
+  border-bottom: 1px solid black;
+
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      list-style-type: none;
+      padding: 0.5rem 0 0.5rem 1rem;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+}
+
+.SelectWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.TilesSelect {
+  display: block;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  option {
+    display: block;
+    padding: 0.5rem;
+  }
+}
+
+.ThreadControl {
+  button {
+    position: absolute;
+    display: block;
+    right: 1rem;
+    top: 0;
+  }
+}

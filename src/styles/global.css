@@ -15,36 +15,21 @@ a:active {
 }
 
 body {
-  grid-template-areas:
-    "Header Header Header"
-    "Menu Menu Menu"
-    ". Content ."
-    "Footer Footer Footer";
-  width: 100vw;
-  min-height: 100vh;
-  /* background-color: var(--blue-40); */
   background-image: var(--bg-colorfull-full);
 }
 
 header {
-  grid-area: Header;
-
   width: 100%;
   padding: 1rem;
   margin-bottom: 1rem;
   background-color: rgb(245, 245, 245, 0.8);
 }
 
-menu {
-  grid-area: Menu;
-}
-
 main {
-  grid-area: Content;
-
   margin: 0 auto;
 
   /* Tablet (768px bis 1023px) */
+
   @media screen and (min-width: 1024px) {
     width: 100%;
     max-width: 1000px;
@@ -70,10 +55,19 @@ main {
 }
 
 footer {
-  grid-area: Footer;
+  display: block;
+
   width: 100%;
-  padding: 1rem;
-  margin: 0;
+  margin: 2rem 0 0 0;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    li {
+      padding: 0.5rem;
+    }
+  }
 }
 
 h1 {

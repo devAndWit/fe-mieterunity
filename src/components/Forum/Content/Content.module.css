@@ -1,44 +1,25 @@
 .ContentContainer {
   position: relative;
+  
+  padding: 1rem;
   width: 100%;
+  /* background-color: pink; */
+  max-height: 600px;
+  overflow: scroll;
+
   /* background-color: green; */
 }
 
+.ContentHeadLine {
+  display: block;
+  /* background-color: green; */
+  width: 100%;
+}
+
 .Content {
-}
-
-.Title {
+  /* position: relative; */
+  height: 100%;
   display: block;
-  padding: 1rem;
+  margin-top: 1rem;
 }
 
-.List {
-  display: block;
-  padding: 1rem;
-}
-
-.Message {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
-  background-color: whitesmoke;
-  border-radius: 1rem;
-  border: 1px solid lightblue;
-
-  input {
-    display: block;
-    width: 100%;
-    border-radius: 1rem;
-    padding: 1rem;
-    outline: none;
-  }
-
-  button {
-    display: block;
-    width: 10rem;
-    border-radius: 1rem;
-  }
-}

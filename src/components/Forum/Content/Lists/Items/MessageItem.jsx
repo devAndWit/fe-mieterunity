@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // Beispiel: Hier könnte eine API-Aufruf zum Abrufen von Direktnachrichten erfolgen
-function DirectMessagesContent() {
+function MessageItem() {
   return (
     <>
       <div></div>
@@ -9,4 +9,4 @@ function DirectMessagesContent() {
   );
 }
 
-export default DirectMessagesContent; // Standard-Export
+export default MessageItem; // Standard-Export

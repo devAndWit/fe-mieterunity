@@ -4,20 +4,20 @@ import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
-    <footer className={styles.FooterContainer}>
+    <footer>
       <ul>
         <li>
           <Link to="/legalnotice">Impressum</Link>
         </li>
+        <div className={styles.ArrowUp}>
+          <a href="#idHeader">
+            <FaChevronUp size="1.5rem" />
+          </a>
+        </div>
         <li>
           <Link to="/privacypolicy">Datenschutz</Link>
         </li>
       </ul>
-      <div className={styles.ArrowUp}>
-        <a href="#idHeader">
-          <FaChevronUp size="1.5rem" />
-        </a>
-      </div>
     </footer>
   );
 };

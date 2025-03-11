@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
 // Beispiel: Hier könnte eine API-Aufruf zum Abrufen von Threads erfolgen
-function ThreadContent() {
+export function ThreadItem({ key, message }) {
   return (
     <>
-      <div>Threads</div>
+      <div>
+        {key} {message}
+      </div>
     </>
   );
 }
 
-export default ThreadContent; // Standard-Export
+export default ThreadItem; // Standard-Export
