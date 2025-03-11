@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
 // Beispiel: Hier könnte eine API-Aufruf zum Abrufen von Threads erfolgen
-function ThreadItem() {
+export function ThreadItem({ data }) {
   return (
     <>
-      <div>Threads</div>
+      <div>ThreadItem</div>
     </>
   );
 }

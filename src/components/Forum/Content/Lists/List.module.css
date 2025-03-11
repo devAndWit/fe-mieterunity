@@ -1,8 +1,52 @@
 .ThreadList {
-  /* position: relative; */
+  display: grid;
+  grid-template-rows: 4rem auto;
+  background-color: green;
+}
+
+.ThreadListHeader {
+  display: flex;
+}
+
+.ThreadListHeaderItem {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .ThreadListItem {
   position: absolute;
   bottom: 0;
+}
+
+.ThreadInputWrapper {
+  display: flex;
+  position: absolute;
+  bottom: 0rem;
+  left: 1rem;
+  right: 1rem;
+
+  form {
+    display: flex;
+    width: 100%;
+    background-color: lightblue;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 0.2rem;
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 0 1rem;
+      outline: none;
+    }
+
+    button {
+      display: block;
+      background-color: orange;
+      width: 100%;
+    }
+  }
 }

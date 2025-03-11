@@ -23,7 +23,6 @@ export const DirectMessage = () => {
       const result = await response.json();
 
       if (result.data) {
-        console.log("TYPEOF", typeof result.data);
         setUsers(result.data);
       }
       return result;

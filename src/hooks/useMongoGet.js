@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios"; // Empfohlen für bessere Fehlerbehandlung und Konfiguration
+import axios from "axios";
 
 export function useMongoGet(url, queryParams = {}) {
   const [data, setData] = useState(null);
@@ -8,20 +8,64 @@ export function useMongoGet(url, queryParams = {}) {
 
   useEffect(() => {
     async function fetchData() {
+      console.log("GETTING URL : ", url);
+
+      if (!url || url === null || url === "null") {
+        console.log("ERROR: get null as param");
+        setData(null);
+        setError("keine Url");
+        setLoading(false);
+        return [data, loading, error];
+      }
       setLoading(true);
       setError(null);
+
       try {
-        const response = await axios.get(url, { params: queryParams }); // Verwendung von axios mit Query-Parametern
-        setData(response.data); // Daten aus der axios-Antwort extrahieren
+        const response = await axios.get(url, {
+          params: queryParams,
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.status >= 200 && response.status < 300) {
+          setData(response.data);
+        } else {
+          // Unerwarteter Statuscode
+          setError({
+            message: `Unerwarteter Statuscode: ${response.status}`,
+            status: response.status,
+          });
+        }
       } catch (err) {
-        setError(err);
+        if (err.response) {
+          // Server hat mit einem Fehlerstatuscode geantwortet
+          setError({
+            message: `Serverfehler: ${err.response.status} - ${
+              err.response.data.message || "Keine detaillierte Fehlermeldung"
+            }`,
+            status: err.response.status,
+          });
+        } else if (err.request) {
+          // Keine Antwort vom Server erhalten
+          setError({
+            message: "Keine Antwort vom Server erhalten",
+            status: null,
+          });
+        } else {
+          // Fehler beim Erstellen der Anfrage
+          setError({
+            message: `Fehler beim Senden der Anfrage: ${err.message}`,
+            status: null,
+          });
+        }
       } finally {
         setLoading(false);
       }
     }
-
     fetchData();
-  }, [url, JSON.stringify(queryParams)]); // Abhängigkeiten für useEffect
+  }, [url, JSON.stringify(queryParams)]);
 
   return { data, loading, error };
 }

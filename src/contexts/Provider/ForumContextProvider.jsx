@@ -2,9 +2,15 @@ import { useContext, useMemo, useState } from "react";
 import { AuthContext } from "../AuthContext";
 import { ForumContext } from "../ForumContext";
 
+
 export const ForumContextProvider = ({ children }) => {
   const { backendUrl, user } = useContext(AuthContext);
   const userId = user?._id || null;
+
+  const [directMsgData, setDirectMsgData] = useState({
+    fromId: null,
+    toId: null,
+  });
 
   const [userData, setUserData] = useState({
     data: null,
@@ -41,9 +47,11 @@ export const ForumContextProvider = ({ children }) => {
     category: null,
     thread: null,
     message: null,
+    fromId: null,
+    toId: null,
   });
 
-  const [currentTask, setCurrentTask] = useState(null);
+  const [currentTaskData, setCurrentTaskData] = useState(null);
 
   const [reload, setReload] = useState(false);
 
@@ -52,6 +60,14 @@ export const ForumContextProvider = ({ children }) => {
       userId,
       backendUrl,
       users: userData,
+
+      directMsg: directMsgData,
+
+      setDirectMsgFromId: (fromId) =>
+        setDirectMsgData((prev) => ({ ...prev, fromId })),
+      setDirectMsgToId: (toId) =>
+        setDirectMsgData((prev) => ({ ...prev, toId })),
+
       setUsers: (data) => setUserData(data),
       userLength: locationData.data?.length || 0,
       locations: locationData,
@@ -78,8 +94,8 @@ export const ForumContextProvider = ({ children }) => {
       currentMessage: currentItems.message,
       setCurrentMessage: (message) =>
         setCurrentItems((prev) => ({ ...prev, message })),
-      currentTask,
-      setCurrentTask: (data) => setCurrentTask(data),
+      currentTask: currentTaskData,
+      setCurrentTask: (data) => setCurrentTaskData(data),
       reload,
       setReload: () => setReload((prevReload) => !prevReload),
     }),
@@ -92,10 +108,10 @@ export const ForumContextProvider = ({ children }) => {
       threadData,
       messageData,
       currentItems,
-      currentTask,
-      setCurrentTask,
+      currentTaskData,
       reload,
       setReload,
+      directMsgData,
     ]
   );
 

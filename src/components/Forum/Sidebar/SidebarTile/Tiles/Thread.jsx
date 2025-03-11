@@ -35,31 +35,16 @@ function Thread() {
     },
   });
 
-  const handleClick = (thread) => {
-    console.log("THREAD INPUT", thread);
+  const handleClickThread = (thread) => {
+    console.log("HANDLE CLICK THREAD : ", thread.length);
     setCurrentTask(tasks.Thread);
+    setCurrentThread(thread);
+  };
+
+  const handleNewThread = (thread) => {
+    console.log("HANDLE CLICK NEW THREAD : ");
     setCurrentThread(thread._id);
-  };
-
-  const handleNewThread = () => {
-    setCurrentThread(null);
     setCurrentTask(tasks.NewThread);
-  };
-
-  const controlButton = () => {
-    return (
-      <>
-        <div className={styles.ThreadControl}>
-          <button
-            onClick={() => {
-              handleNewThread();
-            }}
-          >
-            +
-          </button>
-        </div>
-      </>
-    );
   };
 
   /*------------------------------------------------*/
@@ -97,7 +82,7 @@ function Thread() {
                   <li
                     key={index}
                     onClick={() => {
-                      handleClick(thread);
+                      handleClickThread(thread._id);
                     }}
                   >
                     {thread.title}
@@ -105,7 +90,17 @@ function Thread() {
                 );
               })}
           </ul>
-          {controlButton()}
+          <>
+            <div className={styles.ThreadControl}>
+              <button
+                onClick={() => {
+                  handleNewThread();
+                }}
+              >
+                +
+              </button>
+            </div>
+          </>
         </div>
       </>
     );

@@ -13,6 +13,7 @@ export const Forum = () => {
         <Content />
       </ForumContextProvider>
     </div>
+    
   );
 };
 

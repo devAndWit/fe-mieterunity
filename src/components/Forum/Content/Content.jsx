@@ -2,21 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { tasks } from "../../../const/tasks.js";
 import { BACKEND_URL } from "../../../const/urls.js";
-import { ForumContext } from "../../../contexts/ForumContext.jsx";
 import Thread from "../Sidebar/SidebarTile/Tiles/Thread.jsx";
 import ThreadList from "./Lists/ThreadList.jsx";
-import { NewMessage } from "./Dialogs/NewMessage.jsx";
 import NewThread from "./Dialogs/NewThread.jsx";
-import { useEffect } from "react";
-import { useState } from "react";
+import { NewMessage } from "./Dialogs/NewMessage.jsx";
+import MessageList from "./Lists/MessageList.jsx";
+import { useState, useEffect } from "react";
+import { ForumContext } from "../../../contexts/ForumContext.jsx";
 
 import styles from "./Content.module.css";
 
 export const Content = () => {
-  const { currentTask, currentLocation, currentThread, reload } =
+  const { currentTask, currentLocation, currentThread } =
     useContext(ForumContext);
-
-  const [refresh, setRefresh] = useState(false);
 
   const {
     data: threads,
@@ -40,15 +38,14 @@ export const Content = () => {
 
   const renderContent = (variant) => {
     switch (variant) {
-      case tasks.NewThread:
-        // return 1;
-        return <NewThread />;
       case tasks.Thread:
-        // return 2;
         return <ThreadList />;
+      case tasks.NewThread:
+        return <NewThread />;
       case tasks.Message:
-        return 3;
-      // return <NewMessage />;
+        return <MessageList />;
+      case tasks.NewMessage:
+        return <NewMessage />;
       default:
         return <div>Keine Nachrichten oder Threads vorhanden</div>;
     }

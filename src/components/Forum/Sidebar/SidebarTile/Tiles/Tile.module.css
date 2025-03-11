@@ -45,7 +45,7 @@
   button {
     position: absolute;
     display: block;
-    right: 0;
+    right: 1rem;
     top: 0;
   }
 }

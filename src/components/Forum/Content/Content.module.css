@@ -1,9 +1,12 @@
 .ContentContainer {
   position: relative;
-  display: grid;
+  
   padding: 1rem;
   width: 100%;
-  
+  /* background-color: pink; */
+  max-height: 600px;
+  overflow: scroll;
+
   /* background-color: green; */
 }
 
@@ -11,13 +14,12 @@
   display: block;
   /* background-color: green; */
   width: 100%;
-
 }
 
 .Content {
-  position: relative;
+  /* position: relative; */
   height: 100%;
   display: block;
-  
-  padding: 1rem;
+  margin-top: 1rem;
 }
+

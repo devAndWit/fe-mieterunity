@@ -8,7 +8,11 @@ import { BACKEND_URL } from "./../../../../const/urls.js";
 import styles from "./Dialogs.module.css";
 
 export const NewMessage = () => {
-  return <div>NewMessage</div>;
+  return (
+    <>
+      <div>New Message</div>
+    </>
+  );
 };
 
 export default NewMessage;
