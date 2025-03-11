@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function MessageItem() {
   return (
     <>
-      <div></div>
+      <div>TEST</div>
     </>
   );
 }
