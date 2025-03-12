@@ -1,52 +1,27 @@
-.accountSection {
-  display: block;
-  /* min-height: 50vh; */
-  margin: 4rem auto;
-  width: 100%;
-}
-
-.headlineContainer {
-  position: relative;
-  display: inline-block;
-  padding: 2rem;
+.AccountContainer {
   background-color: whitesmoke;
-  font-weight: bold;
-  letter-spacing: 1px;
+  padding: 1rem;
+  margin: 2rem auto 0 auto;
   border-radius: 2rem;
+  width: 100%;
+  max-width: 90%;
+
+  overflow: scroll;
   box-shadow: 8px 8px 16px var(--black-40);
 }
 
-.headlineSpan {
-  display: block;
-  font-size: 2rem;
-  background-image: var(--bg-colorfull-half);
-  color: rgba(0, 0, 0, 0.5);
-  background-clip: text;
+.AccountHeadline {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
 }
 
-.accountArticle {
-  background-color: whitesmoke;
-  box-shadow: 8px 8px 16px var(--black-40);
-
-  padding: 4rem;
-  margin-bottom: 2rem;
-  border-radius: 4rem;
-}
-
-.sectionContentText {
+.SectionContentText {
   line-height: 1.5rem;
   width: 100%;
-
-  h2 {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    min-height: 2rem;
-    text-align: left;
-    border-bottom: 1px solid black;
-  }
+  padding: 1rem 2rem;
 }
 
-.formData {
+.FormData {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -96,10 +71,10 @@
   }
 }
 
-.accountTextCenter {
-  display: block;
-  text-align: center;
-  margin: 1rem auto;
+.SectionContentSingleLine {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 button {
@@ -119,5 +94,3 @@ button {
     box-shadow: 8px 8px 16px var(--black-60);
   }
 }
-
-

@@ -34,7 +34,7 @@ export const Settings = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-   
+
     setFormData((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
@@ -44,38 +44,38 @@ export const Settings = () => {
 
   return (
     <main>
-      <section className={styles.settingsSection}>
-        <div className={styles.headlineContainer}>
-          <span className={styles.headlineSpan}>Einstellungen</span>
+      <div className={styles.SettingsContainer}>
+        <div className={styles.SettingsHeadline}>
+          <h2>Einstellungen</h2>
         </div>
-      </section>
 
-      <section className={styles.settingsSection}>
-        <article className={styles.settingsArticle}>
-          <div className={styles.sectionContentText}>
-            <form
-              className={styles.formData}
-              onSubmit={handleSubmit}
-              method="POST"
-            >
-              <p>
-                <label htmlFor="darkmode">DarkMode</label>
-                <input
-                  type="checkbox"
-                  name="darkmode"
-                  id="darkmode"
-                  value={formData.darkMode}
-                  onChange={handleInput}
-                />
-              </p>
-              <p>
-                <button type="submit">Speichern</button>
-                <button onClick={handleClose}>Schließen</button>
-              </p>
-            </form>
-          </div>
-        </article>
-      </section>
+        <section className={styles.settingsSection}>
+          <article className={styles.settingsArticle}>
+            <div className={styles.sectionContentText}>
+              <form
+                className={styles.formData}
+                onSubmit={handleSubmit}
+                method="POST"
+              >
+                <p>
+                  <label htmlFor="darkmode">DarkMode</label>
+                  <input
+                    type="checkbox"
+                    name="darkmode"
+                    id="darkmode"
+                    value={formData.darkMode}
+                    onChange={handleInput}
+                  />
+                </p>
+                <p>
+                  <button type="submit">Speichern</button>
+                  <button onClick={handleClose}>Schließen</button>
+                </p>
+              </form>
+            </div>
+          </article>
+        </section>
+      </div>
     </main>
   );
 };

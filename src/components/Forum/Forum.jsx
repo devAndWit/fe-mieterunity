@@ -7,13 +7,15 @@ import styles from "./Forum.module.css";
 
 export const Forum = () => {
   return (
-    <div className={styles.Forum}>
-      <ForumContextProvider>
-        <Sidebar />
-        <Content />
-      </ForumContextProvider>
+    <div className={styles.ForumContainer}>
+      <h1>Forum</h1>
+      <div className={styles.ForumWrapper}>
+        <ForumContextProvider>
+          <Sidebar />
+          <Content />
+        </ForumContextProvider>
+      </div>
     </div>
-    
   );
 };
 

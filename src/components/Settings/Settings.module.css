@@ -1,35 +1,23 @@
-.settingsSection {
-  display: block;
-  /* min-height: 50vh; */
-  margin: 4rem auto;
-  width: 100%;
-}
-
-.headlineContainer {
-  position: relative;
-  display: inline-block;
-  flex-direction: column;
-  padding: 2rem;
+.SettingsContainer {
   background-color: whitesmoke;
-  font-weight: bold;
-  letter-spacing: 1px;
+  padding: 1rem;
+  margin: 2rem auto 0 auto;
   border-radius: 2rem;
+  width: 100%;
+  max-width: 90%;
+
+  overflow: scroll;
   box-shadow: 8px 8px 16px var(--black-40);
 }
 
-.headlineSpan {
-  display: block;
-  font-size: 2rem;
-  background-image: var(--bg-colorfull-half);
-  color: rgba(0, 0, 0, 0.5);
-  background-clip: text;
+.SettingsHeadline {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
 }
+
 
 .settingsArticle {
-  background-color: whitesmoke;
-  box-shadow: 8px 8px 16px var(--black-40);
-
-  padding: 4rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 4rem;
 }

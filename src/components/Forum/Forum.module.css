@@ -1,6 +1,4 @@
-.Forum {
-  display: flex;
-
+.ForumContainer {
   background-color: whitesmoke;
   padding: 1rem;
   margin: 2rem auto 0 auto;
@@ -11,4 +9,13 @@
   overflow: scroll;
 
   box-shadow: 8px 8px 16px var(--black-40);
+
+  h1 {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.ForumWrapper {
+  display: flex;
 }

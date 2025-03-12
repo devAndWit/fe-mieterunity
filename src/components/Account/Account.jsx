@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Password from "..//Password/Password.jsx";
+
 import styles from "./Account.module.css";
 
 export const Account = () => {
@@ -50,17 +51,14 @@ export const Account = () => {
 
   return (
     <main>
-      <section className={styles.accountSection}>
-        <div className={styles.headlineContainer}>
-          <span className={styles.headlineSpan}>Konto</span>
+      <div className={styles.AccountContainer}>
+        <div className={styles.AccountHeadline}>
+          <h2>Konto</h2>
         </div>
-      </section>
-
-      <section className={styles.accountSection}>
-        <article className={styles.accountArticle}>
-          <div className={styles.sectionContentText}>
+        <div className={styles.AccountWrapper}>
+          <div className={styles.SectionContentText}>
             <form
-              className={styles.formData}
+              className={styles.FormData}
               onSubmit={handleSubmit}
               method="POST"
             >
@@ -105,24 +103,21 @@ export const Account = () => {
               </p>
             </form>
           </div>
-        </article>
-      </section>
 
-      <Password></Password>
+          <Password></Password>
 
-      <section className={styles.accountSection}>
-        <article className={styles.accountArticle}>
-          <div className={styles.sectionContentText}>
-            <b className={styles.accountTextCenter}>
-              Du kannst hier dein Konto löschen.
-            </b>
-            <button type="button" onClick={handleDeleteAccount}>
-              Konto löschen
-            </button>
+          <div className={styles.SectionContentText}>
+            <div className={styles.SectionContentSingleLine}>
+              <div>Du kannst hier dein Konto löschen.</div>
+              <div>
+                <button type="button" onClick={handleDeleteAccount}>
+                  Konto löschen
+                </button>
+              </div>
+            </div>
           </div>
-        </article>
-      </section>
-
+        </div>
+      </div>
     </main>
   );
 };
