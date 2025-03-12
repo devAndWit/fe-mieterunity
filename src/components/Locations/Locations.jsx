@@ -67,105 +67,112 @@ export const Locations = () => {
 
   return (
     <main>
-      <h2>Themen:</h2>
+      <div className={styles.AddressContainer}>
+        <div className={styles.AddressHeadline}>
+          <h2>Adressliste:</h2>
+        </div>
 
-      <div>
-        <h2>Adressliste:</h2>
-        <AddressList />
-      </div>
+        <div className="">
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className={styles.Button}
+          >
+            Neue Addresse hinzufügen
+          </button>
 
-      <div className="">
-        <button
-          type="button"
-          onClick={() => setModalOpen(true)}
-          className={styles.Button}
-        >
-          Open Modal
-        </button>
+          <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+            <div className={styles.ModalWrapper}>
+              <h2>Neue Adresse</h2>
 
-        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-          <h2>Neue Adresse</h2>
+              <form onSubmit={handleSaveData}>
+                <p>
+                  <label htmlFor="street">Straße:</label>
+                  <input
+                    type="text"
+                    name="street"
+                    id="street"
+                    value={addressData.street}
+                    onChange={handleInput}
+                  />
+                </p>
 
-          <form onSubmit={handleSaveData}>
-            <p>
-              <label htmlFor="street">Straße:</label>
-              <input
-                type="text"
-                name="street"
-                id="street"
-                value={addressData.street}
-                onChange={handleInput}
-              />
-            </p>
+                <p>
+                  <label htmlFor="houseNr">Hausnummer:</label>
+                  <input
+                    type="text"
+                    name="houseNr"
+                    id="houseNr"
+                    value={addressData.housenr}
+                    onChange={handleInput}
+                  />
+                </p>
 
-            <p>
-              <label htmlFor="houseNr">Hausnummer:</label>
-              <input
-                type="text"
-                name="houseNr"
-                id="houseNr"
-                value={addressData.housenr}
-                onChange={handleInput}
-              />
-            </p>
+                <p>
+                  <label htmlFor="postalCode">Postleitzahl:</label>
+                  <input
+                    type="text"
+                    name="postalCode"
+                    id="postalCode"
+                    value={addressData.postalcode}
+                    onChange={handleInput}
+                  />
+                </p>
 
-            <p>
-              <label htmlFor="postalCode">Postleitzahl:</label>
-              <input
-                type="text"
-                name="postalCode"
-                id="postalCode"
-                value={addressData.postalcode}
-                onChange={handleInput}
-              />
-            </p>
+                <p>
+                  <label htmlFor="city">Ort:</label>
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    value={addressData.city}
+                    onChange={handleInput}
+                  />
+                </p>
 
-            <p>
-              <label htmlFor="city">Ort:</label>
-              <input
-                type="text"
-                name="city"
-                id="city"
-                value={addressData.city}
-                onChange={handleInput}
-              />
-            </p>
+                <p>
+                  <label htmlFor="country">Land:</label>
+                  <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    value="Deutschland"
+                    disabled
+                  />
+                </p>
 
-            <p>
-              <label htmlFor="country">Land:</label>
-              <input
-                type="text"
-                name="country"
-                id="country"
-                value="Deutschland"
-                disabled
-              />
-            </p>
+                {error && (
+                  <p className={styles.ErrorSend} style={{ color: "red" }}>
+                    {error}
+                  </p>
+                )}
 
-            {error && (
-              <p className={styles.ErrorSend} style={{ color: "red" }}>
-                {error}
-              </p>
-            )}
-
-            <p>
-              <button
-                className={styles.Button}
-                type="submit"
-                disabled={isLoading}
-              >
-                {isLoading ? "Speichern..." : "Speichern"}
-              </button>
-              <button
-                type="button"
-                className={styles.Button}
-                onClick={() => setModalOpen(false)}
-              >
-                Close
-              </button>
-            </p>
-          </form>
-        </Modal>
+                <p>
+                  <button
+                    className={styles.Button}
+                    type="submit"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Speichern..." : "Speichern"}
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.Button}
+                    onClick={() => setModalOpen(false)}
+                  >
+                    Close
+                  </button>
+                </p>
+              </form>
+            </div>
+          </Modal>
+        </div>
+        <div>
+          <h2 className={styles.AddressListHeadline}>
+            bestehende Addresse auswählen:
+          </h2>
+          <AddressList />
+        </div>
       </div>
     </main>
   );

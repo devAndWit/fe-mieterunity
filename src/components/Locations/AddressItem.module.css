@@ -2,15 +2,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  transition: 0.3s all;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: lightblue;
+  }
+
+  row-gap: 0.5rem;
 }
 
 .addressItemContent {
   cursor: pointer;
-  span {
-    display: block;
-  }
+  padding: 0.5rem;
+  width: 100%;
   border: 1px solid transparent;
+
   &:hover {
     border: 1px solid green;
   }
@@ -34,11 +41,12 @@
   }
 }
 
-
 .removeUserLocation {
   cursor: pointer;
   transition: 0.3s all;
+  border: 1px transparent;
+
   &:hover {
-    border: 1px solid green;
+    border: 1px solid black;
   }
 }

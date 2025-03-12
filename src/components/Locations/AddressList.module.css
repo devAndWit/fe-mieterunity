@@ -1,6 +1,12 @@
-.AddressList {
-  background-color: whitesmoke;
 
+.AddressList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  background-color: whitesmoke;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  
   i {
     display: block;
     padding: 1rem;

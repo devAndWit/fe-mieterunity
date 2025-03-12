@@ -1,7 +1,29 @@
+.AddressContainer{
+  margin-top: 2rem;
+  background-color: whitesmoke;
+  padding: 2rem;
+  border-radius: 4rem;
+}
+
+.AddressHeadline{
+  padding-left: 1rem;
+}
+
+.AddressListHeadline{
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+}
+
 .Button {
   display: block;
   padding: 0.5rem 1rem;
   border: 1px solid black;
   margin-top: 1rem;
   cursor: pointer;
+
+}
+
+.ModalWrapper{
+  padding: 3rem;
 }

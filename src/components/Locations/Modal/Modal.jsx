@@ -6,7 +6,7 @@ export const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div id="frame" className={styles.ModalFrame}>
       <div id="dialog" className={styles.ModalContent}>
-        <button onClick={onClose} className={styles.ModalClosButton}></button>
+        <button onClick={onClose} className={styles.ModalCloseButton}></button>
         {children}
       </div>
     </div>
