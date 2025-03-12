@@ -17,9 +17,9 @@ export const ProfileUserData = (props) => {
     oldLastName: "",
   });
 
-  const handleKlick = () => {
-    props.neuRendern();
-  };
+  // const handleKlick = () => {
+  //   props.neuRendern();
+  // };
 
   const handleEdit = (e) => {
     setOldValue({
@@ -33,7 +33,6 @@ export const ProfileUserData = (props) => {
   const handleAbort = (e) => {
     setFirstName(oldValue.oldFirstName);
     setLastName(oldValue.oldLastName);
-    console.log("abort");
     setEditMode(false);
   };
 
@@ -62,12 +61,12 @@ export const ProfileUserData = (props) => {
         }
         return true;
       } catch (err) {
-        console.log(err, "Error: Error in Updateprocess.");
+        console.error(err, "Error: Error in Updateprocess.");
       }
       return false;
     };
 
-    console.log(await update());
+    // console.log(await update());
     setEditMode(false);
     
   };

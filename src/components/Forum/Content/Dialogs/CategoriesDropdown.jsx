@@ -1,13 +1,9 @@
+import PropTypes from "prop-types";
 import { useCategories } from "../../../../hooks/useCategories";
 import styles from "./Dialogs.module.css";
 
 export const CategoryDropdown = ({ handleChange }) => {
   const { data: categories, isLoading, error } = useCategories();
-
-  // const handleChange = (event) => {
-  //   const selectedId = event.target.value;
-  //   setCategoryId(selectedId);
-  // };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -20,25 +16,30 @@ export const CategoryDropdown = ({ handleChange }) => {
   console.log("categories", categories);
 
   return (
-    <>
-      <select
-        className={styles.CategoryDropdown}
-        name="categoryId"
-        onChange={handleChange}
-      >
-        <option className={styles.CategoryDropdownOption} value="" disabled>
-          Kategorieauswahl
+    <select
+      className={styles.CategoryDropdown}
+      name="categoryId"
+      onChange={handleChange}
+      defaultValue="" // Default value set to an empty string
+    >
+      {/* Placeholder option */}
+      <option className={styles.CategoryDropdownOption} value="" disabled>
+        Kategorieauswahl
+      </option>
+      {categories.map((category) => (
+        <option
+          className={styles.CategoryDropdownOption}
+          key={category._id}
+          value={category._id}
+        >
+          {category.title}
         </option>
-        {categories.map((category) => (
-          <option
-            className={styles.CategoryDropdownOption}
-            key={category._id}
-            value={category._id}
-          >
-            {category.title}
-          </option>
-        ))}
-      </select>
-    </>
+      ))}
+    </select>
   );
+};
+
+// Define prop types for validation
+CategoryDropdown.propTypes = {
+  handleChange: PropTypes.func.isRequired, // Ensure handleChange is a required function
 };

@@ -18,7 +18,7 @@ export const SignUp = () => {
 
   useEffect(() => {
     const showErrMessage = () => {
-      console.log(errMessage);
+      console.error(errMessage);
     };
     showErrMessage();
   }, [errMessage]);

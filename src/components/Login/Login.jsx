@@ -5,12 +5,12 @@ import styles from "./Login.module.css";
 export const Login = () => {
   const { user, login, isAuthenticated } = useContext(AuthContext);
 
-  if (user && isAuthenticated) {
-    console.log("User", user);
-    console.log("isAuthenticated :", isAuthenticated);
-  } else {
-    console.log("User und IsAuthenticated unbekannt.");
-  }
+  // if (user && isAuthenticated) {
+  //   console.log("User", user);
+  //   console.log("isAuthenticated :", isAuthenticated);
+  // } else {
+  //   console.log("User und IsAuthenticated unbekannt.");
+  // }
 
   const [formData, setFormData] = useState({
     email: "andwit@test1050.de",
@@ -25,9 +25,8 @@ export const Login = () => {
     if (formData.email && formData.password) {
       try {
         setErrMessage(login(formData));
-        console.log("errMsg: ", errMessage);
       } catch (error) {
-        console.log("Error - Login", error);
+        console.error("Error - Login", error);
       }
     }
   };

@@ -1,0 +1,8 @@
+.thread_item {
+  padding: 8px;
+}
+
+.thread_item__infos {
+  display: flex;
+  justify-content: space-between;
+}

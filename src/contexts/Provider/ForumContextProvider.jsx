@@ -7,10 +7,9 @@ export const ForumContextProvider = ({ children }) => {
   const { backendUrl, user } = useContext(AuthContext);
   const userId = user?._id || null;
 
-  const [directMsgData, setDirectMsgData] = useState({
-    fromId: null,
-    toId: null,
-  });
+  const [directMessageToUser, setDirectMessageToUser] = useState(null);
+
+  const [currentThreadTitle, setCurrentThreadTitle] = useState(null);
 
   const [userData, setUserData] = useState({
     data: null,
@@ -60,18 +59,12 @@ export const ForumContextProvider = ({ children }) => {
       userId,
       backendUrl,
       users: userData,
-
-      directMsg: directMsgData,
-
-      setDirectMsgFromId: (fromId) =>
-        setDirectMsgData((prev) => ({ ...prev, fromId })),
-      setDirectMsgToId: (toId) =>
-        setDirectMsgData((prev) => ({ ...prev, toId })),
-
       setUsers: (data) => setUserData(data),
       userLength: locationData.data?.length || 0,
       locations: locationData,
       setLocations: (data) => setLocationData(data),
+      directMessageToUser,
+      setDirectMessageToUser: (user) => setDirectMessageToUser(user),
       locationLength: locationData.data?.length || 0,
       currentLocation: currentItems.location,
       setCurrentLocation: (location) =>
@@ -88,6 +81,8 @@ export const ForumContextProvider = ({ children }) => {
       currentThread: currentItems.thread,
       setCurrentThread: (thread) =>
         setCurrentItems((prev) => ({ ...prev, thread })),
+      currentThreadTitle: currentThreadTitle,
+      setCurrentThreadTitle: (title) => setCurrentThreadTitle(title),
       messages: messageData,
       setMessages: (data) => setMessageData(data),
       messagesLength: messageData.data?.length || 0,
@@ -99,20 +94,7 @@ export const ForumContextProvider = ({ children }) => {
       reload,
       setReload: () => setReload((prevReload) => !prevReload),
     }),
-    [
-      userId,
-      backendUrl,
-      locationData,
-      userData,
-      categoryData,
-      threadData,
-      messageData,
-      currentItems,
-      currentTaskData,
-      reload,
-      setReload,
-      directMsgData,
-    ]
+    [userId, backendUrl, userData, locationData, directMessageToUser, currentItems.location, currentItems.category, currentItems.thread, currentItems.message, categoryData, threadData, currentThreadTitle, messageData, currentTaskData, reload]
   );
 
   return (

@@ -25,10 +25,10 @@ export const Password = () => {
         if (response.ok) {
           setFormData({ email: "", password: "" });
         } else {
-          console.log("Fehler bei der Anmeldung");
+          console.error("Fehler bei der Anmeldung");
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };

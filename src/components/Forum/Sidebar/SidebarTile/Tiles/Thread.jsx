@@ -12,6 +12,7 @@ function Thread() {
     setThreads,
     threads,
     setCurrentTask,
+    setCurrentThreadTitle,
     setCurrentThread,
   } = useContext(ForumContext);
 
@@ -23,6 +24,9 @@ function Thread() {
     queryKey: ["thread", currentLocation],
     // enabled: !!currentLocation,
     queryFn: async () => {
+      if (!currentLocation) {
+        return null
+      }
       const response = await fetch(
         `${BACKEND_URL}/threads/findThreadsByAddressId/${currentLocation}`
       );
@@ -36,14 +40,12 @@ function Thread() {
   });
 
   const handleClickThread = (thread) => {
-    console.log("HANDLE CLICK THREAD : ", thread.length);
     setCurrentTask(tasks.Thread);
-    setCurrentThread(thread);
+    setCurrentThread(thread._id);
+    setCurrentThreadTitle(thread.title);
   };
 
-  const handleNewThread = (thread) => {
-    console.log("HANDLE CLICK NEW THREAD : ");
-    setCurrentThread(thread._id);
+  const handleNewThread = () => {
     setCurrentTask(tasks.NewThread);
   };
 
@@ -82,7 +84,7 @@ function Thread() {
                   <li
                     key={index}
                     onClick={() => {
-                      handleClickThread(thread._id);
+                      handleClickThread(thread);
                     }}
                   >
                     {thread.title}
@@ -111,7 +113,16 @@ function Thread() {
       <div className={styles.Tile}>
         <h2>Themen:</h2>
         <div>Keine Foren verfügbar.</div>
-        {currentLocation ? controlButton() : ""}
+        {/* {currentLocation ? controlButton() : ""} */}
+        <div className={styles.ThreadControl}>
+          <button
+            onClick={() => {
+              handleNewThread();
+            }}
+          >
+            +
+          </button>
+        </div>
       </div>
     </>
   );

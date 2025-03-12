@@ -47,12 +47,10 @@ export const ProfileUserAddressList = (props) => {
     loadLocations();
   }, [backendUrl, userId]);
 
-  console.log("isLoading");
   if (isLoading) {
     return <div>Data Loading....</div>;
   }
 
-  console.log("isError");
   if (isError) {
     return (
       <div className={styles.errorcontainer}>Error at Locations Loading</div>

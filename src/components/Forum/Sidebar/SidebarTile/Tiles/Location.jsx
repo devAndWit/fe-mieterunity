@@ -31,8 +31,6 @@ const Location = () => {
     },
   });
 
-  console.log("LOCATIONS:", locations);
-
   const handleChange = (event) => {
     const selectedId = event.target.value;
     console.log("Selected ID:", selectedId);

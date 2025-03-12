@@ -1,7 +1,6 @@
 .ThreadList {
   display: grid;
   grid-template-rows: 4rem auto;
-  background-color: green;
 }
 
 .ThreadListHeader {

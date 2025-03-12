@@ -4,10 +4,11 @@ import { useContext } from "react";
 import { BACKEND_URL } from "../../../../../const/urls.js";
 import { ForumContext } from "../../../../../contexts/ForumContext.jsx";
 
+import { tasks } from "../../../../../const/tasks.js";
 import styles from "./Tile.module.css";
 
 export const DirectMessage = () => {
-  const { users, setUsers, currentLocation, setCurrentTask } =
+  const { users, userId, setUsers, currentLocation, setCurrentTask, setDirectMessageToUser} =
     useContext(ForumContext);
 
   const {
@@ -17,6 +18,9 @@ export const DirectMessage = () => {
   } = useQuery({
     queryKey: [currentLocation],
     queryFn: async () => {
+      if (!currentLocation) {
+        return null;
+      }
       const response = await fetch(
         `${BACKEND_URL}/users/getUsersByLocationId/${currentLocation}`
       );
@@ -29,11 +33,10 @@ export const DirectMessage = () => {
     },
   });
 
-  console.log("dataResponse", dataResponse);
-
   const handleClick = (userTo) => {
     console.log("SELECTED USER : ", userTo);
-    setCurrentTask("Message");
+    setDirectMessageToUser(userTo);
+    setCurrentTask(tasks.Message);
   };
 
   /*------------------------------------------------*/
@@ -59,8 +62,6 @@ export const DirectMessage = () => {
     );
   }
 
-  console.log(users);
-
   if (users && Array.isArray(users) && users.length > 0) {
     return (
       <>
@@ -69,11 +70,14 @@ export const DirectMessage = () => {
           <ul>
             {Array.isArray(users) &&
               users.map((user, index) => {
+                if (user._id === userId) {
+                  return
+                }
                 return (
                   <li
                     key={index}
                     onClick={() => {
-                      handleClick(user._id);
+                      handleClick(user);
                     }}
                   >
                     {user.email}

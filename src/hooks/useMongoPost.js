@@ -1,5 +1,5 @@
-import { useState, useMemo, useEffect } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 export function useMongoPost(method, postUrl, params = {}) {
   const [data, setData] = useState(null);
@@ -10,15 +10,13 @@ export function useMongoPost(method, postUrl, params = {}) {
   // console.log("UseMongoPost - Init");
   // console.log("UseMongoPost - URL", postUrl);
 
-  console.log("PARAMS", params);
-
   useEffect(() => {
     if ((method = "POST")) {
       async function postData() {
-        console.log("POST_URL : ", postUrl);
+        // console.log("POST_URL : ", postUrl);
 
         if (!postUrl || postUrl === null || postUrl === "null") {
-          console.log("ERROR: get null as param");
+          console.error("ERROR: get null as param");
           setData(null);
           setError({ msg: "keine Url" });
           setLoading(false);
@@ -54,9 +52,8 @@ export function useMongoPost(method, postUrl, params = {}) {
           if (err.response) {
             // Server hat mit einem Fehlerstatuscode geantwortet
             setError({
-              message: `Serverfehler: ${err.response.status} - ${
-                err.response.data.message || "Keine detaillierte Fehlermeldung"
-              }`,
+              message: `Serverfehler: ${err.response.status} - ${err.response.data.message || "Keine detaillierte Fehlermeldung"
+                }`,
               status: err.response.status,
             });
           } else if (err.request) {

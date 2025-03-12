@@ -26,10 +26,10 @@ export const Account = () => {
         if (response.ok) {
           setFormData({ firstname: "", lastname: "", phone: "" });
         } else {
-          console.log("Fehler bei der Anmeldung");
+          console.error("Fehler bei der Anmeldung");
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };
@@ -45,7 +45,7 @@ export const Account = () => {
   };
 
   const handleDeleteAccount = () => {
-    console.log("account was deleted");
+    console.error("account was deleted");
   };
 
   return (

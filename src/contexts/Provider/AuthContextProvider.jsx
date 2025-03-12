@@ -1,7 +1,7 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../AuthContext.jsx";
-import axios from "axios";
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -44,23 +44,23 @@ export const AuthContextProvider = ({ children }) => {
 
       switch (error.response.status) {
         case 401:
-          console.log(errorMessage);
+          console.error(errorMessage);
           break;
 
         case 404:
-          console.log(errorMessage);
+          console.error(errorMessage);
           break;
 
         case 409:
-          console.log(errorMessage);
+          console.error(errorMessage);
           break;
 
         case 500:
-          console.log(errorMessage);
+          console.error(errorMessage);
           break;
 
         default:
-          console.log(errorMessage);
+          console.error(errorMessage);
           break;
       }
 
@@ -91,7 +91,7 @@ export const AuthContextProvider = ({ children }) => {
 
       success = true;
     } catch (error) {
-      console.log("Error - Login: ", error);
+      console.error("Error - Login: ", error);
     }
 
     return success;

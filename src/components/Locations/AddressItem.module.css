@@ -6,8 +6,13 @@
 }
 
 .addressItemContent {
+  cursor: pointer;
   span {
     display: block;
+  }
+  border: 1px solid transparent;
+  &:hover {
+    border: 1px solid green;
   }
 }
 
@@ -26,5 +31,14 @@
     &:hover {
       background-color: var(--bg-80);
     }
+  }
+}
+
+
+.removeUserLocation {
+  cursor: pointer;
+  transition: 0.3s all;
+  &:hover {
+    border: 1px solid green;
   }
 }

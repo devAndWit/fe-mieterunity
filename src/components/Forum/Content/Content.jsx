@@ -2,18 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { tasks } from "../../../const/tasks.js";
 import { BACKEND_URL } from "../../../const/urls.js";
-import Thread from "../Sidebar/SidebarTile/Tiles/Thread.jsx";
-import ThreadList from "./Lists/ThreadList.jsx";
-import NewThread from "./Dialogs/NewThread.jsx";
-import { NewMessage } from "./Dialogs/NewMessage.jsx";
-import MessageList from "./Lists/MessageList.jsx";
-import { useState, useEffect } from "react";
 import { ForumContext } from "../../../contexts/ForumContext.jsx";
-
+import { anonymizeString } from "../../../utils/anonymizeString.js";
 import styles from "./Content.module.css";
+import { NewMessage } from "./Dialogs/NewMessage.jsx";
+import NewThread from "./Dialogs/NewThread.jsx";
+import MessageList from "./Lists/MessageList.jsx";
+import SendMessage from './Lists/SendMessage.jsx';
+import ThreadList from "./Lists/ThreadList.jsx";
 
 export const Content = () => {
-  const { currentTask, currentLocation, currentThread } =
+  const { currentTask, currentLocation, currentThread, currentThreadTitle, directMessageToUser } =
     useContext(ForumContext);
 
   const {
@@ -29,7 +28,6 @@ export const Content = () => {
       const result = await response.json();
 
       if (result.data) {
-        console.log("RETURN:::", result.data);
         return result.data;
       }
     },
@@ -39,13 +37,16 @@ export const Content = () => {
   const renderContent = (variant) => {
     switch (variant) {
       case tasks.Thread:
-        return <ThreadList />;
+        return <>
+          <ThreadList />
+          <SendMessage />
+        </>
       case tasks.NewThread:
-        return <NewThread />;
+        return <NewThread />
       case tasks.Message:
-        return <MessageList />;
+        return <MessageList />
       case tasks.NewMessage:
-        return <NewMessage />;
+        return <NewMessage />
       default:
         return <div>Keine Nachrichten oder Threads vorhanden</div>;
     }
@@ -55,16 +56,12 @@ export const Content = () => {
     <>
       <div className={styles.ContentContainer}>
         <div className={styles.ContentHeadLine}>
-          <div>{currentTask}</div>
-          {Array.isArray(threads) &&
-            threads.map((thread) => {
-              return <div key={thread._id}>{thread.message}</div>;
-            })}
-          <div className={styles.Content}>{renderContent(currentTask)}</div>
+          {(currentThreadTitle || directMessageToUser) && <div style={{fontWeight: 'bold'}}>{currentTask === tasks.Thread ? `Thema: ${currentThreadTitle}` : `Nachrichtenverlauf mit ${anonymizeString(directMessageToUser && (directMessageToUser.firstName || directMessageToUser.email))}`}</div>}
+          <div className={styles.Content} style={{...(!(currentThreadTitle && directMessageToUser) && { marginTop: 0} )}}>{renderContent(currentTask)}</div>
         </div>
       </div>
     </>
-  );
+  )
 };
 
 export default Content;

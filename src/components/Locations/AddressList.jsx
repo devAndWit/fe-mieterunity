@@ -1,16 +1,22 @@
+import { useAddresses } from "../../mock/useUserAddress.js";
 import { AddressItem } from "./AddressItem.jsx";
-import { useUserAddress } from "../../mock/addressData.js";
 
 import styles from "./AddressList.module.css";
 
 export const AddressList = () => {
-  const userAddresses = useUserAddress();
+  const { data: addresses} = useAddresses();
+
+  console.log("useAddresses", addresses)
+
+  if (!addresses) {
+    return null
+  }
 
   return (
     <div className={styles.AddressList}>
-      <i>gefundene Adressen: {userAddresses.count}</i>
+      <i>gefundene Adressen: {addresses.data.length}</i>
 
-      {userAddresses.addresses.map((val, ind) => (
+      {addresses.data.map((val, ind) => (
         <AddressItem key={ind} props={val} />
       ))}
     </div>
